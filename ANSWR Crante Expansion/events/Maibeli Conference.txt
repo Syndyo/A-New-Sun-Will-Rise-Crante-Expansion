@@ -44,7 +44,7 @@ country_event = { #Maibeli Conference
     }
 
     option = {
-        name = "EVTOPTA260200" # We pleasefully accept the invitation
+        name = "EVT260200OPTA" # We pleasefully accept the invitation
         prestige = 10
         any_country = {
             limit = { AND = { is_greater_power = yes capital_scope = { continent = europe } } }
@@ -74,7 +74,7 @@ country_event = { #Maibeli reaction
     }
 
     option = {
-        name = "EVTOPTA260201" # We accept all terms of the conference
+        name = "EVT260201OPTA" # We accept all terms of the conference
         any_state = { is_slave = no }
         prestige = 20
         any_country = {
@@ -99,7 +99,7 @@ country_event = { #Maibeli reaction
     }
 
     option = {
-        name = "EVTOPTB260201" # We dont accept all terms, but are willing to negotiate
+        name = "EVT260201OPTB" # We dont accept all terms, but are willing to negotiate
         any_country = {
             limit = { has_country_flag = maibeli_conference_attended  }
             relation = { who = THIS value = -30 }
@@ -156,7 +156,7 @@ country_event = { #secesion of Assab
     }
 
     option = {
-        name = "EVTOPTA260202" # We are pleased with this outcome
+        name = "EVT260202OPTA" # We are pleased with this outcome
         set_global_flag = secession_of_assab
         1851 = { set_province_flag = mbc_secession secede_province = THIS }
     }
@@ -189,7 +189,7 @@ country_event = { #secesion of Massawa
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_massawa
         1849 = { set_province_flag = mbc_secession secede_province = THIS }
     }
@@ -223,7 +223,7 @@ country_event = { #secesion of berbera
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_berbera
         1873 = { set_province_flag = mbc_secession secede_province = THIS }
     }
@@ -258,7 +258,7 @@ country_event = { #secesion of Bosaso
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_bosaso
         1872 = { set_province_flag = mbc_secession secede_province = THIS }
     }
@@ -294,7 +294,7 @@ country_event = { #secesion of Socotra
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_socotra
         1177 = { set_province_flag = mbc_secession secede_province = THIS }
     }
@@ -327,7 +327,7 @@ country_event = { #secesion of Mogadishu
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_mogadishu
         set_country_flag = mogadishu_seceded
         1868 = { secede_province = THIS }
@@ -505,7 +505,7 @@ country_event = { # Treaty of Tipsbyen - Eritrea secession
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_eritrea
         any_province = {
             limit = { region = ENG_1848 }
@@ -556,7 +556,7 @@ country_event = { # Treaty of Tipsbyen - North Somaliland secession
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_north_somaliland
         any_province = {
             limit = { region = SOM_1872 }
@@ -595,7 +595,7 @@ country_event = { # Treaty of Tipsbyen - South Somaliland secession
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_country_flag = south_somaliland_seceded
         set_global_flag = secession_of_south_somaliland
         SOM_1868 = { secede_province = THIS }
@@ -641,7 +641,7 @@ country_event = { # Treaty of Tipsbyen - Mogadishu secession
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_mogadishu_typsbien
         1868 = { secede_province = THIS set_province_flag = tot_secession }
     }
@@ -682,7 +682,7 @@ country_event = { # Treaty of Tipsbyen - Socotra secession
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_socotra_typsbien
         1177 = { secede_province = THIS set_province_flag = tot_secession }
     }
@@ -713,7 +713,7 @@ country_event = { # Treaty of Tipsbyen - Defender gets Maibeli
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_maibeli
         set_country_flag = maibeli_seceded
         any_province = {
@@ -764,7 +764,7 @@ country_event = { # Treaty of Tipsbyen - Eritrea Owner gets Sudan
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_global_flag = secession_of_sudan
         set_country_flag = sudan_seceded
         SUD = { all_core = { limit = { owned_by = ETH } secede_province = THIS } }
@@ -792,7 +792,7 @@ country_event = { # Treaty of Tipsbyen - Defender gets Maibeli colonies
     }
 
     option = {
-        name = "EVTOPTA260202"
+        name = "EVT260202OPTA"
         set_country_flag = maibeli_colonies_seceded
         ETH = {
             any_owned = { 

@@ -1536,90 +1536,90 @@ province_event = {
     }
 }
 
-#Transferring Massawa - Civs
-country_event = {
-    id = 955206
-    title = "EVTNAME955206"
-    desc = "EVTDESC955206"
-    picture = "scramble_for_africa"
+# #Transferring Massawa - Civs
+# country_event = {
+#     id = 955206
+#     title = "EVTNAME955206"
+#     desc = "EVTDESC955206"
+#     picture = "scramble_for_africa"
 
-    trigger = {
-        war = no
-        any_owned_province = { region = ENG_1848 }
-        has_global_flag = berlin_conference
-        civilized = yes
-        NOT = { owns = 1851 }
-        NOT = { has_country_flag = not_giving_eritrea }
-        any_neighbor_country = {
-            capital_scope = { continent = europe }
-            owns = 1851
-            civilized = yes
-            war = no
-        }
-    }
+#     trigger = {
+#         war = no
+#         any_owned_province = { region = ENG_1848 }
+#         has_global_flag = berlin_conference
+#         civilized = yes
+#         NOT = { owns = 1851 }
+#         NOT = { has_country_flag = not_giving_eritrea }
+#         any_neighbor_country = {
+#             capital_scope = { continent = europe }
+#             owns = 1851
+#             civilized = yes
+#             war = no
+#         }
+#     }
 
-    mean_time_to_happen = {
-        months = 12
-        modifier = {
-            factor = 0.5
-            invention = the_dark_continent
-        }
-        modifier = {
-            factor = 0.5
-            year = 1885
-        }
-    }
+#     mean_time_to_happen = {
+#         months = 12
+#         modifier = {
+#             factor = 0.5
+#             invention = the_dark_continent
+#         }
+#         modifier = {
+#             factor = 0.5
+#             year = 1885
+#         }
+#     }
 
-    option = {
-        name = "EVT955206OPTA"
-        badboy = -2
-        any_neighbor_country = {
-            limit = {
-                owns = 1851
-                civilized = yes
-            }
-            relation = { who = THIS value = 25 }
-            country_event = 955207
-        }
-        ai_chance = { factor = 80 }
-    }
+#     option = {
+#         name = "EVT955206OPTA"
+#         badboy = -2
+#         any_neighbor_country = {
+#             limit = {
+#                 owns = 1851
+#                 civilized = yes
+#             }
+#             relation = { who = THIS value = 25 }
+#             country_event = 955207
+#         }
+#         ai_chance = { factor = 80 }
+#     }
 
-    option = {
-        name = "EVT955206OPTB"
-        badboy = 2
-        set_country_flag = not_giving_eritrea
-        any_neighbor_country = {
-            limit = {
-                owns = 1851
-                civilized = yes
-            }
-            relation = { who = THIS value = -50 }
-            casus_belli = {
-                target = THIS
-                type = place_in_the_sun
-                months = 48
-            }
-        }
-        ai_chance = { factor = 20 }
-    }
-}
+#     option = {
+#         name = "EVT955206OPTB"
+#         badboy = 2
+#         set_country_flag = not_giving_eritrea
+#         any_neighbor_country = {
+#             limit = {
+#                 owns = 1851
+#                 civilized = yes
+#             }
+#             relation = { who = THIS value = -50 }
+#             casus_belli = {
+#                 target = THIS
+#                 type = place_in_the_sun
+#                 months = 48
+#             }
+#         }
+#         ai_chance = { factor = 20 }
+#     }
+# }
 
-#Transferring Massawa - Assab owner gets the answer
-country_event = {
-    id = 955207
-    title = "EVTNAME955207"
-    desc = "EVTDESC955207"
-    picture = "scramble_for_africa"
+# #Transferring Massawa - Assab owner gets the answer
+# country_event = {
+#     id = 955207
+#     title = "EVTNAME955207"
+#     desc = "EVTDESC955207"
+#     picture = "scramble_for_africa"
 
-    is_triggered_only = yes
+#     is_triggered_only = yes
 
-    option = {
-        name = "EVT955205OPTA"
-        FROM = {
-            any_owned = {
-                limit = { region = ENG_1848 }
-                secede_province = THIS
-            }
-        }
-    }
-}
+#     option = {
+#         name = "EVT955205OPTA"
+#         FROM = {
+#             any_owned = {
+#                 limit = { region = ENG_1848 }
+#                 secede_province = THIS
+#             }
+#         }
+#     }
+# }

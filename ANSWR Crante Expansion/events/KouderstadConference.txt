@@ -6,7 +6,7 @@ country_event = {
     title = "EVTNAME195500" #The Kouderstad Conference
     desc = "EVTDESC195500"
     news = yes
-    picture = "scramble_for_africa"
+    picture = "scramble_of_india"
     major = yes
 
     trigger = {
@@ -78,7 +78,7 @@ country_event = {
     id = 195502
     title = "EVTNAME195502" #The Age of Colonialism
     desc = "EVTDESC195502"
-    picture = "scramble_for_africa"
+    picture = "scramble_of_india"
 
     trigger = {
         civilized = no
