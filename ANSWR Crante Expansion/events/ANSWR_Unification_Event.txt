@@ -1,0 +1,548 @@
+#SAP-NOD Unification
+country_event = {
+    id = 52000
+    title = "EVTNAME52000" #The Severige-Norge Question
+    desc = "EVTDESC52000"
+    picture = "danishgovernment"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52000OPTA" #Send them an ultimatium!
+        badboy = 1
+
+        any_country = {
+            limit = { tag = NOD }
+            country_event = 52001
+        }
+
+        ai_chance = {
+            factor = 75
+        }
+    }
+    option = {
+        name = "EVT52000OPTB" #We shall march on Trondheim! For Skandinaviska!
+        set_global_flag = forceful_scandinavian_unification
+        badboy = 7.5
+        any_country = {
+        any_pop = {
+            scaled_militancy = {
+                issue = pacifism
+                factor = 4
+            }
+        }
+        any_country = {
+            
+            limit = {
+            tag = SAP
+            }
+
+            SAP = { release_vassal = NOD }
+        }
+        leave_alliance = NOD
+        relation = {
+            who = NOD
+            value = -200
+        }
+        diplomatic_influence = {
+            who = NOD
+            value = -200
+        }
+        war = {
+            target = NOD
+            attacker_goal = {
+                casus_belli = conquest_any
+            }
+        }
+        ai_chance = {
+            factor = 20
+            modifier = {
+                factor = 0
+                war_policy = pacifism
+            }
+            modifier = {
+                factor = 0.5
+                war_policy = anti_military
+                    }
+                }
+            }
+        }
+    option = {
+        name = "EVT52000OPTC" #We have no need to unite that petty, rouge state, to our north.
+        badboy = -2
+        ai_chance = {
+            factor = 5
+        }
+    }
+}
+
+country_event = {
+    id = 52001
+    title = "EVTNAME52001" #The Severige-Norge Question
+    desc = "EVTDESC52001"
+    picture = "danishgovernment"
+    is_triggered_only = yes
+    
+    option = {
+        name = "EVT52001OPTA" #Give into SAP's demands
+
+        any_country = {
+            limit = { tag = SAP }
+            country_event = { id = 52003 days = 7 }
+        }
+
+        ai_chance = {
+        factor = 80
+        modifier = {
+            factor = .75
+            war_policy = jingoism
+        }
+        }
+    }
+
+    option ={
+        name = "EVT52001OPTB"
+        any_country = {
+            limit = { tag = SAP }
+            country_event = { id = 52002 days = 7}
+        }        
+        ai_chance = {
+            factor = 20
+        }
+    }
+}
+
+country_event = {
+
+    id = 52002
+    title = "EVTNAME52002" #Severige-Norge Refuses
+    desc = "EVTDESC52002"
+    picture = "danishgovernment"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52002OPTA" #Then they want war?
+        war = {
+            target = NOD
+            attacker_goal = {
+                casus_belli = conquest_any
+            }
+        }        
+        ai_chance = {
+        factor = 80
+        modifier = {
+            factor = 1.5
+            war_policy = jingoism
+        }
+        modifier = {
+            factor = 1.25
+            war_policy = pro_military
+        }
+        modifier = {
+            factor = 0.1
+            war_policy = pacifism
+        }
+        modifier = {
+            factor = 0.25
+            war_policy = anti_military
+        }
+    }
+    }
+
+    option ={
+        name = "EVT52002OPTB" #backoff
+        badboy = -1
+        ai_chance = {
+            factor = 20
+            modifier = {
+                factor = 4
+                war_policy = pacifism
+            }
+            modifier = {
+                factor = 1.25
+                war_policy = anti_military
+            }
+            modifier = {
+            factor = 0
+            war_policy = jingoism
+            }
+            modifier = {
+                factor = 0.75
+                war_policy = pro_military
+            }
+        }       
+    }
+}
+
+country_event = {
+
+    id = 52003
+    title = "EVTNAME52003" #The Severige-Norge unification peaceful
+    desc = "EVTDESC52003"
+    picture = "danishgovernment"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52003OPTA" #We are truly Scandinava
+        set_country_flag = skandinaviska_victory
+        inherit = NOD
+        ai_chance = {
+        factor = 100
+        }    
+
+            modifier = {
+                factor = 0
+                war_policy = pacifism
+            }
+            modifier = {
+                factor = 0.5
+                war_policy = anti_military
+            }
+        }
+}
+country_event = {
+
+    id = 52004
+    title = "EVTNAME52004" #Situtation of NOD
+    desc = "EVTDESC52004"
+    picture = "norwegian_storting"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52004OPTA" #So be it
+    }
+}
+
+country_event = {
+
+    id = 52005
+    title = "EVTNAME52005" #Situtation of SAP
+    desc = "EVTDESC52005"
+    picture = "norwegian_storting"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52005OPTA" #So be it
+    }
+}
+
+country_event = {
+
+    id = 52006
+    title = "EVTNAME52006" #Vive La France!
+    desc = "EVTDESC52006"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52006OPTA" #Yay!
+        FROM = {
+        inherit = THIS
+        }
+        all_core = { remove_core = FROM }
+
+    }
+}
+country_event = {
+    
+    id = 52007
+    title = "EVTNAME52007" #Skandinavian winds
+    desc = "EVTDESC52007"
+    major = yes
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52007OPTA" #Horrah for Skan
+        set_global_flag = scandi_united
+    }
+}
+#Finland Question
+country_event = {
+    
+    id = 52058
+    title = "EVTNAME52058" #The Finnish Question
+    desc = "EVTDESC52058"
+    fire_only_once = yes
+    trigger = {
+        tag = FIN
+        has_global_flag = scandi_united
+        NOT = { OR = { has_global_flag = finland_petition has_global_flag = finnish_independence} }
+    }
+    mean_time_to_happen = { months = 12 }
+    option = {
+        name = "EVT52058OPTA" #attempt to join Skandinavia
+        set_global_flag = finland_petition
+        ai_chance = {
+            factor = 25
+            modifier = {
+                factor = 4
+                relation = {
+                    who = SAP
+                    value = 100
+                }
+                relation = {
+                    who = NOD
+                    value = 100
+                }
+            }
+        }
+    }
+    option = {
+        name = "EVT52058OPTB" #attempt to join Skandinavia
+        set_global_flag = finnish_independence
+        prestige = 10
+        ai_chance = {
+            factor = 75
+            modifier = {
+                factor = 0.1
+                relation = {
+                    who = SAP
+                    value = 100
+                }
+                relation = {
+                    who = NOD
+                    value = 100
+                }
+            }
+            modifier = {
+                factor = 0.25
+                war_policy = pacifism
+            }
+            modifier = {
+                factor = 1.0
+                war_policy = anti_military
+            }
+            modifier = {
+            factor = 4
+            war_policy = jingoism
+            }
+            modifier = {
+                factor = 3
+                war_policy = pro_military
+            }
+        }
+    }
+}
+country_event = {
+    
+    id = 520509
+    title = "EVTNAME52059" #Svea-Norge Wins
+    desc = "EVTDESC52059"
+    fire_only_once = yes
+
+    trigger = {
+        tag = NOD
+        SAP = { has_recently_lost_war = yes }
+        has_global_flag = forceful_scandinavian_unification
+        war = no
+        NOT = { THIS = {has_country_modifier = kalmar_union  } }
+    }
+
+    option = {
+        name = "EVT52059OPTA" #Horrah for the Nordge
+        inherit = SAP
+        add_country_modifier = {
+                    name = kalmar_union
+                    duration = -1
+                }
+        SWE_309 = { add_core = NOD }
+        SWE_313 = { add_core = NOD }
+        SWE_322 = { add_core = NOD }
+        SWE_329 = { add_core = NOD }
+        SWE_334 = { add_core = NOD }
+        DEN_372 = { add_core = NOD }
+        THIS = { country_event = { id = 52007 days = 0} }
+    }
+}
+###El Jardin Unification
+country_event = {
+
+    id = 52118
+    title = "EVTNAME52118" #Prosperity for El Jardin!
+    desc = "EVTDESC52118"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52006OPTA" #Yay!
+        FROM = {
+        inherit = THIS
+        }
+        all_core = { remove_core = THIS add_core = JAR }
+    }
+}
+country_event = {
+
+    id = 52119
+    title = "EVTNAME52119" #Prosperity for El Jardin!
+    desc = "EVTDESC52119"
+    major = yes
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52119OPTA" #To a new era
+        change_tag = JAR
+        prestige = 10
+    }
+}
+###Istoslavia
+country_event = {
+
+    id = 52150
+    title = "EVTNAME52150" #Istoslavia wants us to join them
+    desc = "EVTDESC52150"
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    option = {
+        name = "EVT52150OPTA" #Yes
+        ISV = { set_country_flag = nadastise_accepts }
+        prestige = -2
+    }
+    option = {
+        name = "EVT52150OPTB" #Refuse
+        ISV = { set_country_flag = nadastise_refuses }
+        prestige = 2
+    }
+}
+country_event = {
+
+    id = 52151
+    title = "EVTNAME52151" #Istoslavia wants us to join them
+    desc = "EVTDESC52151"
+    is_triggered_only = yes
+
+    option = {
+        name = "EVT52151OPTA" #Yes
+        ISV = { set_country_flag = skrvat_accepts }
+        prestige = -2
+    }
+    option = {
+        name = "EVT52151OPTB" #Refuse
+        ISV = { set_country_flag = skrvat_refuses }
+        prestige = 2
+    }
+}
+country_event = {
+
+    id = 52152
+    title = "EVTNAME52152" #Istoslavia wants us to join them
+    desc = "EVTDESC52152"
+    trigger = {
+        has_country_flag = skrvat_accepts
+        has_country_flag = nadastise_accepts
+        NOT = { has_country_flag = annexation_demands_met }
+    }
+
+    mean_time_to_happen = { days = 14 }
+
+    option = {
+        name = "EVT52152OPTA" #Yes
+        prestige = 5
+        inherit = MON
+        inherit = NSR
+        TUR_806 = { add_core = ISV }
+        TUR_823 = { add_core = ISV }
+        release = MCD
+        set_country_flag = annexation_demands_met
+    }
+}
+#The Borgar people
+country_event = {
+
+    id = 52153
+    title = "EVTNAME52153" #Borgar Migrations
+    desc = "EVTDESC52153"
+    trigger = {
+        tag = BOR
+        NOT = { has_country_flag = borgar_migrations }
+    }
+
+    mean_time_to_happen = { days = 7 }
+
+    option = {
+        name = "EVT52153OPTA" #Yes
+        TUR_882 = { add_province_modifier = { name = colonial_recruitment duration = 1825 } }
+        set_country_flag = borgar_migrations
+    }
+}
+#Conquer the Imparatorluk
+country_event = {
+
+    id = 52154
+    title = "EVTNAME52154" #Borgar Migrations
+    desc = "EVTDESC52154"
+    is_triggered_only = yes
+
+    option = {
+        name = "EVT52154OPTA" #Yes
+        TUR_863 = { add_core = BOR remove_core = TUR }
+        TUR_863 = { any_pop = { limit = { culture = borgar } reduce_pop = 1.5 } }
+        TUR_863 = { add_province_modifier = { name = colonial_recruitment duration = 1825 } }
+        TUR_869 = { add_core = BOR remove_core = TUR }
+        TUR_880 = { any_pop = { limit = { culture = borgar } reduce_pop = 1.5 } }
+        TUR_880 = {  add_province_modifier = { name = colonial_recruitment duration = 1825 } }
+        TUR_873 = { add_core = BOR remove_core = TUR }
+        TUR_876 = { add_core = BOR remove_core = TUR }
+        TUR_860 = { add_core = BOR }
+        TUR_882 = { remove_core = TUR }
+        TUR_860 = { add_core = BOR }
+            TUR_882 = { remove_core = TUR }
+        set_country_flag = borgar_conquest
+    }
+}
+#Borgar Balkans
+country_event = {
+
+    id = 52155
+    title = "EVTNAME52155" #Borgar Migrations
+    desc = "EVTDESC52155"
+    trigger = {
+        tag = BOR
+        has_country_flag = BOR_zakovograd
+        NOT = {has_country_flag = borgar_balkans}
+    }
+
+    mean_time_to_happen = { months = 24 }
+
+    option = {
+        name = "EVT52155OPTA" #Yes
+        prestige = 3
+        TUR_823 = { add_core = THIS }
+        TUR_810 = { add_core = THIS }
+        TUR_806 = { add_core = THIS }
+        TUR_803 = { add_core = THIS }
+        TUR_674 = { add_core = THIS }
+        set_country_flag = borgar_balkans
+    }
+}
+#Incomplete Conquer of Anatolia
+country_event = {
+
+    id = 52156
+    title = "EVTNAME52154" #Borgar Migrations
+    desc = "EVTDESC52154"
+    is_triggered_only = yes
+
+    option = {
+        name = "EVT52154OPTA" #Yes
+        TUR_863 = { add_core = BOR remove_core = TUR }
+        TUR_863 = { add_province_modifier = { name = colonial_recruitment duration = 1825 } }
+        TUR_880 = { any_pop = { limit = { culture = borgar } reduce_pop = 1.5 } }
+        TUR_880 = {  add_province_modifier = { name = colonial_recruitment duration = 1825 } }
+        TUR_873 = { add_core = BOR remove_core = TUR }
+        TUR_876 = { add_core = BOR remove_core = TUR }
+        TUR_860 = { add_core = BOR }
+        TUR_882 = { remove_core = TUR }
+        TUR_860 = { add_core = BOR }
+        TUR_882 = { remove_core = TUR }
+        TUR_869 = { add_core = BOR }
+        set_country_flag = borgar_conquest
+    }
+}

@@ -1,0 +1,40 @@
+#The Alqadima War#
+##################
+
+country_event = {
+	id = 59000
+	title = "EVTNAME59000" #The Alqadima War
+	desc = "EVTDESC59000"
+	news = yes
+	picture = "blood_river"
+	mean_time_to_happen = { months = 96 }
+	trigger = {
+		PTO = { exists = yes }
+		controls = 1746
+		NOT = { has_global_flag = alqadima_war }
+		OR = {
+			AND = {
+				OR = {
+					is_greater_power = yes
+					is_secondary_power = yes
+				}	
+				has_global_flag = kouderstad_conference
+			}
+			AND = { 
+				year = 2902
+			}
+		}
+	}
+	option = {
+		name = "EVT59000OPTA"
+		set_global_flag = alqadima_war
+		war = {
+			target = PTO
+			attacker_goal = { casus_belli = conquest }
+			defender_goal = { casus_belli = status_quo }
+			months = 4
+			call_ally = no
+
+		}
+	}
+}
