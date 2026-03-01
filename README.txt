@@ -1,6 +1,6 @@
 This is a submod of the mod A New Sun Will Rise for Victoria 2. The goal for this mod is adding new content and fixes meanwhile the main version gets updated.
 
-As this is a submod, it needs ANSWR to work properly, get it in Github https://github.com/TheBlazingOak/A-New-Sun-Will-Rise or ModDB https://www.moddb.com/mods/answr
+As this is a submod, it needs ANSWR to work properly, get it in Github https://github.com/TheBlazingOak/A-New-Sun-Will-Rise or ModDB https://www.moddb.com/mods/answr . Credits and thanks to Oak and all people involved in the original version.
 
 Citing the github of ANSWR:
 
@@ -15,6 +15,5 @@ Testing it has been found the same issue as the main version:
 If bugs are found and you want to contribute, write an issue here or tell it on the ANSWR Discord server: https://discord.com/invite/Gb9MrEv
 
 Credits:
-Oak
 Syndyo
 Horrorluv
