@@ -5,7 +5,7 @@ As this is a submod, it needs ANSWR to work properly, get it in Github https://g
 Citing the github of ANSWR:
 
 "Installation:
-Move both the ANSWR Crante Expansion, and ANSWR Crante Expansion.mod files into your Victoria 2 mod folder (which previously has to have the main mod). You can find it by going into steam, and find your copy of Victoria 2 in your libary.
+Move both the ANSWR Crante Expansion, and ANSWR Crante Expansion.mod files into your Victoria 2 mod folder (which previously has to have the main mod). You can find it by going into steam, and find your copy of Victoria 2 in your library.
 Right click the game, and click on properties. From there, move to the Local Files tab, and click Browse Local Files. From there you should see the mod folder, and
 you want to put the mod files."
 
