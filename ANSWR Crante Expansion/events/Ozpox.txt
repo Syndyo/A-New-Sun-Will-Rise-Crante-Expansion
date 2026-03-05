@@ -119,7 +119,7 @@ province_event = {
 		}
 		modifier = { # High literacy slows the spread
 			factor = 1.2
-			owner = { literacy = 60 }
+			owner = { literacy = 0.6 }
 		}
 		modifier = { # Continent modifier
 			factor = 1.5
@@ -412,6 +412,7 @@ country_event = {
 		political_reform = closed_borders
 		political_reform = landed_voting
 		political_reform_desire = -0.5
+		set_country_flag = government_busy_with_something
 		any_owned = {
 			limit = { has_province_modifier = ozpox_outbreak }
 			remove_province_modifier = ozpox_outbreak
@@ -485,6 +486,7 @@ country_event = {
 		name = "EVT357693OPTA"
 		set_country_flag = ozpox_nation_pandemic
 		political_reform = closed_borders
+		set_country_flag = government_busy_with_something
 		any_owned = {
 			limit = { has_province_modifier = ozpox_outbreak }
 			remove_province_modifier = ozpox_outbreak
@@ -548,6 +550,7 @@ country_event = { # Lift of quarantine (Democratic)
 		remove_country_modifier = ozpox_border_closure
 		political_reform = quota_immigration
 		set_country_flag = quarantine_lifted
+		clr_country_flag = government_busy_with_something
 	}
 }
 
@@ -570,6 +573,7 @@ country_event = { # Lift of quarantine (Authoritarian or already open borders)
 		remove_country_modifier = quarantine_active
 		remove_country_modifier = ozpox_border_closure
 		set_country_flag = quarantine_lifted
+		clr_country_flag = government_busy_with_something
 	}
 }
 
@@ -699,7 +703,7 @@ country_event = { # Refund for cure research
 
 	option = {
 		name = "EVT357697OPTC"
-		remove_country_flag = ozpox_cure_search
+		clr_country_flag = ozpox_cure_search
 		set_country_flag = ozpox_not_searching_cure
 	}
 }
@@ -749,7 +753,7 @@ country_event = { # Cure found
 		name = "EVT357698OPTA"
 		set_global_flag = ozpox_cure_found
 		set_country_flag = ozpox_cure_founder
-		remove_country_flag = ozpox_cure_search
+		clr_country_flag = ozpox_cure_search
 		prestige = 100
 		add_country_modifier = {
 			name = ozpox_cure_prestige

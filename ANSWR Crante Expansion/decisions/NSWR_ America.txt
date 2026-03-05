@@ -782,51 +782,52 @@ transpacifica_unification = {
 
 	##Mexico##
 	#El Liberado Mexico Claim
-	the_liberation_mexico = {
-		potential = {
-			exists = yes
-			tag = ELO 
-			NOT = {has_country_flag = the_liberation}
-		}
-		allow = {
-			ELO = { all_core = { owned_by = THIS } }
-			prestige = 1
-		}
-		effect ={
-			prestige = 3
-			MEX = { all_core = { add_core = THIS remove_core = MEX } }
-			set_country_flag = the_liberation
-		}
-	}
-	#Spread the liberation
-	the_liberation_central_america = {
-		potential = {
-			exists = yes
-			tag = ELO 
-			has_country_flag = the_liberation
-			NOT = {has_country_flag = the_liberation_central_america}
-		}
-		allow = {
-			ELO = { all_core = { owned_by = THIS } }
-			prestige = 15
-		}
-		effect ={
-			prestige = 10
-			GUA = { all_core = { add_core = THIS remove_core = MEX } }
-			set_country_flag = the_liberation_central_america
-		}
-	}
+	# the_liberation_mexico = {
+	# 	potential = {
+	# 		exists = yes
+	# 		tag = ELO 
+	# 		NOT = {has_country_flag = the_liberation}
+	# 	}
+	# 	allow = {
+	# 		ELO = { all_core = { owned_by = THIS } }
+	# 		prestige = 1
+	# 	}
+	# 	effect ={
+	# 		prestige = 3
+	# 		MEX = { all_core = { add_core = THIS remove_core = MEX } }
+	# 		set_country_flag = the_liberation
+	# 	}
+	# }
+	# #Spread the liberation
+	# the_liberation_central_america = {
+	# 	potential = {
+	# 		exists = yes
+	# 		tag = ELO 
+	# 		has_country_flag = the_liberation
+	# 		NOT = {has_country_flag = the_liberation_central_america}
+	# 	}
+	# 	allow = {
+	# 		ELO = { all_core = { owned_by = THIS } }
+	# 		prestige = 15
+	# 	}
+	# 	effect ={
+	# 		prestige = 10
+	# 		GUA = { all_core = { add_core = THIS remove_core = MEX } }
+	# 		set_country_flag = the_liberation_central_america
+	# 	}
+	# }
+	#Moved to NSWR_ELO -S
 	#Chihuahua colonization
 	chihuahua_colonization = {
 		potential = {
 			exists = yes
 			primary_culture = mexican
-			year = 2850
 			2142 = { empty = yes }
 			NOT = {has_country_flag = chihuahua_colonization}
 		}
 		allow = {
 			2141 = { owned_by = THIS }
+			year = 2845
 			prestige = 15
 		}
 		effect ={

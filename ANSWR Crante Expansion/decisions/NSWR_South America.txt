@@ -1,5 +1,5 @@
 political_decisions = {
-Muisca Formation
+#Muisca Formation
 muisca_form = {
 		potential = {
 				OR = { tag = CRR tag = GAR }
@@ -14,15 +14,18 @@ muisca_form = {
 			VNZ_2278 = { owned_by = THIS }
 		}
 		effect = {
-			all_core = { remove_core = GAR remove_core = CRR add_core = QKD }
 			change_tag = QKD
+			GAR = { all_core = { add_core = QKD } }
+			CRR = { all_core = { add_core = QKD } }
+			all_core = { remove_core = GAR remove_core = CRR }
 			set_global_flag = muiscan_formed
 		}
 	}
 	casanare_colonialization = {
 		potential = {
-				tag = QKD
+				OR = { tag = QKD tag = CLM tag = GCO }
 				year = 2840
+				CLM_2262 = { empty = yes }
 				NOT = { has_country_flag = casanar_qkd }
 			}
 		allow = {
@@ -32,6 +35,22 @@ muisca_form = {
 			CLM_2262 = { add_core = THIS }
 			CLM_2262 = { secede_province = THIS }
 			set_country_flag = casanar_qkd
+		}
+	}
+
+	pastaza_colonialization = {
+		potential = {
+			OR = { tag = QKD tag = CSK tag = CLM }
+			PEU_2289 = { empty = yes }
+			year = 2840
+			NOT = { has_country_flag = pastaza_qkd }
+		}
+		allow = {
+			ECU_2279 = { owned_by = THIS }
+		}
+		effect = {
+			PEU_2289 = { secede_province = THIS add_core = THIS add_core = CSK }
+			set_country_flag = pastaza_qkd
 		}
 	}
 	eastward_expansion = {
@@ -50,11 +69,51 @@ muisca_form = {
 			VNZ_2239 = { secede_province = THIS }
 			VNZ_2239 = { add_core = THIS }
 			BRZ_1954 = { add_core = THIS }
-			BRZ_2452 = { add_core = THIS }
 			BRZ_2408 = { add_core = THIS }
 			set_country_flag = casanar_qkd2
 		}
 	}
+
+	#Andia
+	form_andia = {
+		potential = {
+			OR = { 
+				tag = QKD
+				tag = CSK
+			}
+			civilized = yes
+			state_n_government = 1
+			NOT = { has_country_flag = andia_formation }
+		}
+
+		allow = {
+			owns = 2264
+			owns = 2252
+			owns = 2295
+			owns = 2310
+			nationalism_n_imperialism = 1
+			OR = {
+				is_greater_power = yes
+				is_secondary_power = yes
+			}
+		}
+
+		effect = {
+			change_tag = CLM
+			add_accepted_culture = muisca
+			add_accepted_culture = quechua
+			add_accepted_culture = pacinian
+			add_accepted_culture = aimara
+			GAR = { all_core = { add_core = CLM } }
+			CRR = { all_core = { add_core = CLM } }
+			QKD = { all_core = { add_core = CLM } }
+			CSK = { all_core = { add_core = CLM } }
+			BWK = { all_core = { add_core = CLM } }
+			prestige = 50
+			set_country_flag = andia_formation
+		}
+	}
+
 	#States of the South
 	state_of_the_south = {
 		picture = south_america

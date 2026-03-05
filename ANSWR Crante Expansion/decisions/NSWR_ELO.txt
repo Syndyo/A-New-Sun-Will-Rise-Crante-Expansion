@@ -1,0 +1,246 @@
+political_decisions = {
+	the_liberation_northern = {
+		potential = {
+			exists = yes
+			tag = ELO 
+			NOT = {has_country_flag = the_liberation }
+		}
+		allow = {
+			ELO = { all_core = { owned_by = THIS } }
+			MEX = { exists = no}
+			prestige = 1
+		}
+		effect ={
+			prestige = 3
+			MEX = { all_core = { limit = { NOT = { is_core = RGR } } add_core = THIS } all_core = { remove_core = MEX } }
+			set_country_flag = the_liberation
+		}
+	}
+	#Spread the liberation
+	the_liberation_central_america = {
+		potential = {
+			exists = yes
+			tag = ELO 
+			has_country_flag = the_liberation
+			NOT = {has_country_flag = the_liberation_central_america }
+		}
+		allow = {
+			ELO = { all_core = { owned_by = THIS } }
+			prestige = 15
+		}
+		effect ={
+			prestige = 10
+			GUA = { all_core = { add_core = THIS remove_core = MEX } }
+			set_country_flag = the_liberation_central_america
+		}
+	}
+
+	the_liberation_andia_1 = {
+		potential = {
+			exists = yes
+			owns = 1723
+			tag = ELO
+			QKD = { exists = no }
+			has_country_flag = the_liberation
+			NOT = {has_country_flag = the_liberation_andia }
+		}
+		allow = {
+			is_secondary_power = yes
+			nationalism_n_imperialism = 1
+			ELO = { all_core = { owned_by = THIS } }
+			prestige = 45
+		}
+		effect ={
+			THIS = { casus_belli = {
+				target = GAR
+				type = make_puppet
+				months = 60
+			} }
+			THIS = { casus_belli = {
+				target = CRR
+				type = make_puppet
+				months = 60
+			} }
+			THIS = { casus_belli = {
+				target = CSK
+				type = make_puppet
+				months = 60
+			} }
+			THIS = { casus_belli = {
+				target = BWK
+				type = make_puppet
+				months = 60
+			} }
+			prestige = 20
+			set_country_flag = the_liberation_andia
+		}
+	}
+
+	the_liberation_andia_2 = {
+		potential = {
+			exists = yes
+			owns = 1723
+			tag = ELO
+			QKD = { exists = yes }
+			has_country_flag = the_liberation
+			NOT = {has_country_flag = the_liberation_andia }
+		}
+		allow = {
+			is_secondary_power = yes
+			nationalism_n_imperialism = 1
+			ELO = { all_core = { owned_by = THIS } }
+			prestige = 45
+		}
+		effect ={
+			THIS = { casus_belli = {
+				target = QKD
+				type = make_puppet
+				months = 60
+			} }
+			THIS = { casus_belli = {
+				target = CSK
+				type = make_puppet
+				months = 60
+			} }
+			THIS = { casus_belli = {
+				target = BWK
+				type = make_puppet
+				months = 60
+			} }
+			prestige = 20
+			set_country_flag = the_liberation_andia
+		}
+	}
+
+	the_liberation_andia_3 = {
+		potential = {
+			exists = yes
+			owns = 1723
+			tag = ELO
+			CLM = { exists = yes }
+			has_country_flag = the_liberation
+			NOT = {has_country_flag = the_liberation_andia }
+		}
+		allow = {
+			is_secondary_power = yes
+			nationalism_n_imperialism = 1
+			ELO = { all_core = { owned_by = THIS } }
+			prestige = 45
+		}
+		effect ={
+			THIS = { casus_belli = {
+				target = CLM
+				type = make_puppet
+				months = 60
+			} }
+			badboy = 10
+			prestige = 20
+			set_country_flag = the_liberation_andia
+		}
+	}
+
+	establish_great_republic_1 = {
+		potential = {
+			exists = yes
+			tag = ELO
+			GAR = { exists = yes }
+			OR = {
+				is_our_vassal = GAR
+				is_our_vassal = CRR
+				is_our_vassal = CSK
+				is_our_vassal = BWK
+			}
+		}
+
+		allow = {
+			is_our_vassal = GAR
+			is_our_vassal = CRR
+			is_our_vassal = CSK
+			is_our_vassal = BWK
+			prestige = 75
+			revolution_n_counterrevolution = 1
+			THIS = { is_greater_power = yes }
+		}
+
+		effect = {
+			change_tag = GCO
+			GAR = { all_core = { add_core = GCO } }
+			CRR = { all_core = { add_core = GCO } }
+			CSK = { all_core = { add_core = GCO } }
+			BWK = { all_core = { add_core = GCO } }
+			inherit = GAR
+			inherit = CRR
+			inherit = CSK
+			inherit = BWK
+			add_accepted_culture = central_american
+			add_accepted_culture = muisca
+			add_accepted_culture = quechua
+			add_accepted_culture = pacinian
+			prestige = 50
+		}
+	}
+
+	establish_great_republic_2 = {
+		potential = {
+			exists = yes
+			tag = ELO
+			QKD = { exists = yes }
+			OR = {
+				is_our_vassal = CSK
+				is_our_vassal = BWK
+				is_our_vassal = QKD
+			}
+		}
+
+		allow = {
+			is_our_vassal = QKD
+			is_our_vassal = CSK
+			is_our_vassal = BWK
+			prestige = 75
+			revolution_n_counterrevolution = 1
+			THIS = { is_greater_power = yes }
+		}
+
+		effect = {
+			change_tag = GCO
+			CSK = { all_core = { add_core = GCO } }
+			BWK = { all_core = { add_core = GCO } }
+			QKD = { all_core = { add_core = GCO } }
+			inherit = CSK
+			inherit = BWK
+			inherit = QKD
+			add_accepted_culture = central_american
+			add_accepted_culture = muisca
+			add_accepted_culture = pacinian
+			prestige = 50
+		}
+	}
+
+	establish_great_republic_3 = {
+		potential = {
+			exists = yes
+			tag = ELO
+			CLM = { exists = yes }
+			is_our_vassal = CLM
+		}
+
+		allow = {
+			is_our_vassal = CLM
+			prestige = 75
+			revolution_n_counterrevolution = 1
+			THIS = { is_greater_power = yes }
+		}
+
+		effect = {
+			change_tag = GCO
+			CLM = { all_core = { add_core = GCO } }
+			inherit = CLM
+			add_accepted_culture = central_american
+			add_accepted_culture = muisca
+			add_accepted_culture = pacinian
+			prestige = 50
+		}
+	}
+
+# End of political decisions brackets
+}

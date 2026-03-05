@@ -2965,3 +2965,14 @@ conference_educational_mission = {
     research_points_modifier = 0.7
     icon = 5
 }
+
+### El Liberado ###
+alfredo_fernandez = {
+    mobilisation_size = 0.1
+    global_pop_militancy_modifier = -0.05
+    plurality = -0.01
+    tax_efficiency = 0.05
+    administrative_efficiency = 0.10
+    factory_output = 0.05
+    icon = 18
+}

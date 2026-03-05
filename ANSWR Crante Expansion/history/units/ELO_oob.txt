@@ -1,0 +1,33 @@
+
+leader = {
+    name = "Christain Esteves"
+    type = sea
+    date="2820.1.1"
+    personality = relentless
+    background = madman
+}
+
+leader = {
+    name = "Alfredo Fernandez Rouco"
+    type = land
+    date="2836.1.1"
+    personality = defiant
+    background = natural_born_leader
+}
+
+army = {
+    name = "El Liberado"
+    location = 2177
+    regiment = {
+        name= "1.Division"
+        type = infantry
+        home = 2177
+    }
+
+    regiment = {
+        name= "1. Cavalry"
+        type = cavalry
+        home = 2177
+    }
+
+}

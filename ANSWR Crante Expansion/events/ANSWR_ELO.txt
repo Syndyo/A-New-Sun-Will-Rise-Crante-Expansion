@@ -1,0 +1,195 @@
+#Declaration of Oaxaca
+country_event = {
+    id = 260300
+    title = "EVTNAME260300"
+    desc = "EVTDESC260300"
+    picture = Picture
+    
+    mean_time_to_happen = {
+        days = 1
+    }
+
+    trigger = {
+        tag = ELO
+        ELO = { exists = yes }
+        MEX = { exists = no }
+        war = no
+        NOT = { has_global_flag = el_liberado_won }
+    }
+
+    #fire_only_once = yes
+
+    option = {
+        name = "EVT260300OPTA"
+        any_country = {
+            limit = {
+                capital_scope = { continent = north_america }
+                OR = {
+                    government = absolute_monarchy 
+                    government = prussian_constitutionalism
+                    government = hms_government
+                    government = presidential_dictatorship
+                }
+            }
+            consciousness = 2
+            relation = { who = THIS value = -150 }
+        } 
+        add_country_modifier = { name = alfredo_fernandez duration = -1 }
+        set_global_flag = el_liberado_won 
+    }
+}
+
+# Death of Alfredo
+
+country_event = {
+    id = 260301
+    title = "EVTNAME260301"
+    desc = "EVTDESC260301"
+    picture = Picture
+    
+    trigger = {
+        tag = ELO
+        year = 2842
+        government = bourgeois_dictatorship
+    }
+    
+    mean_time_to_happen = {
+        months = 6
+    }
+
+    fire_only_once = yes
+
+    option = {
+        name = "EVT260301OPTA"
+        government = democracy
+        political_reform = universal_voting
+        add_country_modifier = { name = law_changed_by_force duration = 1095 }
+        remove_country_modifier = alfredo_fernandez
+        consciousness = 3
+        set_country_flag = alfredo_fernandez_death
+        clr_country_flag = government_busy_with_something
+    }
+}
+
+#### Subchain for Riograndese Situation
+
+# The Southern Republic
+country_event = {
+    id = 260310
+    title = "EVTNAME260310"
+    desc = "EVTDESC260310"
+
+    mean_time_to_happen = {
+        months = 1
+    }
+
+    trigger = {
+        tag = RGR
+        2155 = { any_neighbor_province = { owned_by = ELO } }
+    }
+
+    fire_only_once = yes
+
+    option = { # Viva EL Liberado! (Inherit)
+        name = "EVT260310OPTA"
+        ELO = { country_event = { id = 260311 days = 10 } }
+
+        ai_chance = {
+            factor = 33
+            modifier = {
+                factor = 2
+                relation = { who = ELO value = 100 }
+            }
+        }  
+    }
+
+    option = { # This is a thread (War)
+        name = "EVT260310OPTB"
+        ELO = { country_event = { id = 260312 days = 10 } }
+        
+        ai_chance = {
+            factor = 33
+            modifier = {
+                factor = 2
+                NOT = { relation = { who = ELO value = 0 } }
+            }
+        }
+    }
+
+    option = { # Neutral 
+        name = "EVT260310OPTC"
+        ELO = { country_event = { id = 260313 days = 10 } }
+
+        ai_chance = {
+            factor = 33
+        }
+    }
+}
+
+country_event = {
+    id = 260311
+    title = "EVTNAME260311"
+    desc = "EVTDESC260311"
+    picture = Picture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "EVT260311OPTA"
+        inherit = FROM
+        FROM = { all_core = { add_core = ELO } }
+    }
+}
+
+country_event = {
+    id = 260312
+    title = "EVTNAME260312"
+    desc = "EVTDESC260312"
+    picture = Picture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "EVT260312OPTA"
+        # FROM = { all_core = { add_core = ELO } }
+        war = {
+            target = FROM
+            attacker_goal = {
+                casus_belli = conquest
+            }
+            defender_goal = {
+                casus_belli = status_quo
+            }
+            call_ally = no
+        }
+        badboy = 15
+    }
+}
+
+country_event = {
+    id = 260313
+    title = "EVTNAME260313"
+    desc = "EVTDESC260313"
+    picture = Picture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "EVT260313OPTA"
+        relation = { who = FROM value = 200 }
+        alliance_with = FROM
+        ai_chance = {
+            factor = 40
+        }
+    }
+    
+    option = {
+        name = "EVT260313OPTB"
+        FROM = { all_core = { add_core = ELO } }
+        ai_chance = {
+            factor = 60
+        }
+    }
+}
+
+###########
