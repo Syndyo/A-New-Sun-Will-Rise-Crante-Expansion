@@ -4,1314 +4,1375 @@
 #                                                                           #
 #############################################################################
 
-country_event = { #Maibeli Conference
-    id = 260200
-    title = "EVTNAME260200"
-    desc = "EVTDESC260200"
+####### Main conference events #######
+    country_event = { #Maibeli Conference
+        id = 260200
+        title = "EVTNAME260200"
+        desc = "EVTDESC260200"
 
-    mean_time_to_happen = {
-        months = 3
-        modifier = {
-            factor = 0
-            has_global_flag = maibeli_conference
-        }
-    }
-
-    trigger = {
-        year = 2875
-        ETH = { NOT = { civilized = yes } }
-        has_global_flag = berlin_conference
-        NOT = { capital_scope = { continent = africa } }
-        OR = {
-            is_greater_power = yes
-            AND = { 
-                any_owned_province = { continent = africa }
-                capital_scope = { continent = europe } 
-            }
-        }
-        NOT = { REB = { check_variable = { which = maibeli_conference_attendant value = 6 } } }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        AND = {
-            is_greater_power = yes
-            war = no
-        }
-    }
-
-    immediate = {
-        REB = {
-            change_variable = { which = maibeli_conference_attendant value = 1 }
-        }
-    }
-
-    option = {
-        name = "EVT260200OPTA" # We pleasefully accept the invitation
-        prestige = 10
-        any_country = {
-            limit = { AND = { is_greater_power = yes capital_scope = { continent = europe } } }
-            relation = { who = THIS value = 15 }
-        }
-        set_country_flag = maibeli_conference_attended
-        set_global_flag = maibeli_conference
-    }
-}
-
-country_event = { #Maibeli reaction
-    id = 260201
-    title = "EVTNAME260201"
-    desc = "EVTDESC260201"
-
-    mean_time_to_happen = {
-        months = 3
-    }
-
-    trigger = {
-        tag = ETH
-        has_global_flag = berlin_conference
-        NOT = { has_global_flag = maibeli_accepts_conference }
-        NOT = { has_global_flag = maibeli_rejects_conference }
-        REB = { check_variable = { which = maibeli_conference_attendant value = 5 } }
-        NOT = { REB = { check_variable = { which = maibeli_conference_attendant value = 7 } } }
-    }
-
-    option = {
-        name = "EVT260201OPTA" # We accept all terms of the conference
-        any_state = { is_slave = no }
-        prestige = 20
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_attended  }
-            relation = { who = THIS value = 30 }
-            diplomatic_influence = { who = ETH value = 100 }
-        }
-        remove_country_modifier = uncivilized_isolationism
-        add_country_modifier = { name = western_influences duration = -1 }
-        add_country_modifier = { name = conference_educational_mission duration = 1825 }
-        add_country_modifier = { name = missionary_activity duration = 1825 }
-        research_points = 3000
-        set_global_flag = maibeli_accepts_conference
-        THIS = { country_event = 2602010 }
-        ai_chance = {
-            factor = 0.5
-            modifier = { # Is western influenced
-                factor = 1.5
-                has_country_modifier = western_influences
-            }
-        }
-    }
-
-    option = {
-        name = "EVT260201OPTB" # We dont accept all terms, but are willing to negotiate
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_attended  }
-            relation = { who = THIS value = -30 }
-        }
-        set_global_flag = maibeli_rejects_conference
-
-        ai_chance = {
-            factor = 0.4
+        mean_time_to_happen = {
+            months = 3
             modifier = {
-                factor = 1.5
-                has_country_modifier = uncivilized_isolationism
+                factor = 0
+                has_global_flag = maibeli_conference
+            }
+        }
+
+        trigger = {
+            year = 2875
+            ETH = { NOT = { civilized = yes } }
+            has_global_flag = berlin_conference
+            NOT = { capital_scope = { continent = africa } }
+            OR = {
+                is_greater_power = yes
+                AND = { 
+                    any_owned_province = { continent = africa }
+                    capital_scope = { continent = europe } 
+                }
+            }
+            NOT = { REB = { check_variable = { which = maibeli_conference_attendant value = 6 } } }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            AND = {
+                is_greater_power = yes
+                war = no
+            }
+        }
+
+        immediate = {
+            REB = {
+                change_variable = { which = maibeli_conference_attendant value = 1 }
+            }
+        }
+
+        option = {
+            name = "EVT260200OPTA" # We pleasefully accept the invitation
+            prestige = 10
+            any_country = {
+                limit = { AND = { is_greater_power = yes capital_scope = { continent = europe } } }
+                relation = { who = THIS value = 15 }
+            }
+            set_country_flag = maibeli_conference_attended
+            set_global_flag = maibeli_conference
+        }
+    }
+
+    country_event = { #Maibeli reaction
+        id = 260201
+        title = "EVTNAME260201"
+        desc = "EVTDESC260201"
+
+        mean_time_to_happen = {
+            months = 3
+        }
+
+        trigger = {
+            tag = ETH
+            has_global_flag = berlin_conference
+            NOT = { has_global_flag = maibeli_accepts_conference }
+            NOT = { has_global_flag = maibeli_rejects_conference }
+            REB = { check_variable = { which = maibeli_conference_attendant value = 5 } }
+            NOT = { REB = { check_variable = { which = maibeli_conference_attendant value = 7 } } }
+        }
+
+        option = {
+            name = "EVT260201OPTA" # We accept all terms of the conference
+            any_state = { is_slave = no }
+            prestige = 20
+            any_country = {
+                limit = { has_country_flag = maibeli_conference_attended  }
+                relation = { who = THIS value = 30 }
+                diplomatic_influence = { who = ETH value = 100 }
+            }
+            remove_country_modifier = uncivilized_isolationism
+            add_country_modifier = { name = western_influences duration = -1 }
+            add_country_modifier = { name = conference_educational_mission duration = 1825 }
+            add_country_modifier = { name = missionary_activity duration = 1825 }
+            research_points = 3000
+            set_global_flag = maibeli_accepts_conference
+            THIS = { country_event = 2602010 }
+            ai_chance = {
+                factor = 0.5
+                modifier = { # Is western influenced
+                    factor = 1.5
+                    has_country_modifier = western_influences
+                }
+            }
+        }
+
+        option = {
+            name = "EVT260201OPTB" # We dont accept all terms, but are willing to negotiate
+            any_country = {
+                limit = { has_country_flag = maibeli_conference_attended  }
+                relation = { who = THIS value = -30 }
+            }
+            set_global_flag = maibeli_rejects_conference
+
+            ai_chance = {
+                factor = 0.4
+                modifier = {
+                    factor = 1.5
+                    has_country_modifier = uncivilized_isolationism
+                }
             }
         }
     }
-}
 
 ####### Maibeli Acceptance - Secession Events ########
 
-country_event = { # Major event for maibeli concession
-    id = 2602010
-    title = "EVTNAME2602010"
-    desc = "EVTDESC2602010"
+    country_event = { # Major event for maibeli concession
+        id = 2602010
+        title = "EVTNAME2602010"
+        desc = "EVTDESC2602010"
 
-    is_triggered_only = yes
-    major = yes
-    option = {
-        name = "EVT2602010OPTA" 
-    }
-}
-
-country_event = { #secesion of Assab
-    id = 260202
-    title = "EVTNAME260202"
-    desc = "EVTDESC260202"
-
-    mean_time_to_happen = {
-        days = 0
+        is_triggered_only = yes
+        major = yes
+        option = {
+            name = "EVT2602010OPTA" 
+        }
     }
 
-    fire_only_once = yes
+    country_event = { #secesion of Assab
+        id = 260202
+        title = "EVTNAME260202"
+        desc = "EVTDESC260202"
 
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = maibeli_accepts_conference
-        NOT = { has_global_flag = secession_of_assab }
-        NOT = { has_country_flag = assab_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        1851 = { owned_by = ETH }
+        mean_time_to_happen = {
+            days = 0
+        }
+
+        fire_only_once = yes
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = maibeli_accepts_conference
+            NOT = { has_global_flag = secession_of_assab }
+            NOT = { has_country_flag = assab_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            1851 = { owned_by = ETH }
+        }
+
+        immediate = {
+            set_country_flag = assab_seceded
+            diplomatic_influence = { who = ETH value = 400 }
+        }
+
+        option = {
+            name = "EVT260202OPTA" # We are pleased with this outcome
+            set_global_flag = secession_of_assab
+            1851 = { set_province_flag = mbc_secession secede_province = THIS }
+        }
     }
 
-    immediate = {
-        set_country_flag = assab_seceded
-        diplomatic_influence = { who = ETH value = 400 }
+    country_event = { #secesion of Massawa
+        id = 260203
+        title = "EVTNAME260203"
+        desc = "EVTDESC260203"
+
+        mean_time_to_happen = {
+            days = 0
+        }
+
+        fire_only_once = yes
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = maibeli_accepts_conference
+            has_global_flag = secession_of_assab
+            NOT = { has_global_flag = secession_of_massawa }
+            NOT = { has_country_flag = massawa_seceded }
+            NOT = { has_country_flag = assab_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            1849 = { owned_by = ETH }
+        }
+
+        immediate = {
+            set_country_flag = massawa_seceded
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_massawa
+            1849 = { set_province_flag = mbc_secession secede_province = THIS }
+        }
     }
 
-    option = {
-        name = "EVT260202OPTA" # We are pleased with this outcome
-        set_global_flag = secession_of_assab
-        1851 = { set_province_flag = mbc_secession secede_province = THIS }
-    }
-}
+    country_event = { #secesion of berbera
+        id = 260204
+        title = "EVTNAME260204"
+        desc = "EVTDESC260204"
 
-country_event = { #secesion of Massawa
-    id = 260203
-    title = "EVTNAME260203"
-    desc = "EVTDESC260203"
+        mean_time_to_happen = {
+            days = 0
+        }
 
-    mean_time_to_happen = {
-        days = 0
-    }
+        fire_only_once = yes
 
-    fire_only_once = yes
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = maibeli_accepts_conference
+            has_global_flag = secession_of_massawa
+            NOT = { has_global_flag = secession_of_berbera  }
+            NOT = { has_country_flag = berbera_seceded }
+            NOT = { has_country_flag = massawa_seceded }
+            NOT = { has_country_flag = assab_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            1873 = { owned_by = ETH }
+        }
 
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = maibeli_accepts_conference
-        has_global_flag = secession_of_assab
-        NOT = { has_global_flag = secession_of_massawa }
-        NOT = { has_country_flag = massawa_seceded }
-        NOT = { has_country_flag = assab_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        1849 = { owned_by = ETH }
-    }
+        immediate = {
+            set_country_flag = berbera_seceded
+        }
 
-    immediate = {
-        set_country_flag = massawa_seceded
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_massawa
-        1849 = { set_province_flag = mbc_secession secede_province = THIS }
-    }
-}
-
-country_event = { #secesion of berbera
-    id = 260204
-    title = "EVTNAME260204"
-    desc = "EVTDESC260204"
-
-    mean_time_to_happen = {
-        days = 0
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_berbera
+            1873 = { set_province_flag = mbc_secession secede_province = THIS }
+        }
     }
 
-    fire_only_once = yes
+    country_event = { #secesion of Bosaso
+        id = 260205
+        title = "EVTNAME260205"
+        desc = "EVTDESC260205"
 
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = maibeli_accepts_conference
-        has_global_flag = secession_of_massawa
-        NOT = { has_global_flag = secession_of_berbera  }
-        NOT = { has_country_flag = berbera_seceded }
-        NOT = { has_country_flag = massawa_seceded }
-        NOT = { has_country_flag = assab_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        1873 = { owned_by = ETH }
+        mean_time_to_happen = {
+            days = 0
+        }
+
+        fire_only_once = yes
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = maibeli_accepts_conference
+            has_global_flag = secession_of_berbera
+            NOT = { has_global_flag = secession_of_bosaso }
+            NOT = { has_country_flag = bosaso_seceded }
+            NOT = { has_country_flag = berbera_seceded }
+            NOT = { has_country_flag = massawa_seceded }
+            NOT = { has_country_flag = assab_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            1872 = { owned_by = ETH }
+        }
+
+        immediate = {
+            set_country_flag = bosaso_seceded
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_bosaso
+            1872 = { set_province_flag = mbc_secession secede_province = THIS }
+        }
     }
 
-    immediate = {
-        set_country_flag = berbera_seceded
+    country_event = { #secesion of Socotra
+        id = 260206
+        title = "EVTNAME260206"
+        desc = "EVTDESC260206"
+
+        mean_time_to_happen = {
+            days = 0
+        }
+
+        fire_only_once = yes
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = maibeli_accepts_conference
+            has_global_flag = secession_of_bosaso
+            NOT = { has_global_flag = secession_of_socotra }
+            NOT = { has_country_flag = socotra_seceded }
+            NOT = { has_country_flag = bosaso_seceded }
+            NOT = { has_country_flag = berbera_seceded }
+            NOT = { has_country_flag = massawa_seceded }
+            NOT = { has_country_flag = assab_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            1177 = { owned_by = ETH }
+        }
+
+        immediate = {
+            set_country_flag = socotra_seceded
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_socotra
+            1177 = { set_province_flag = mbc_secession secede_province = THIS }
+        }
     }
 
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_berbera
-        1873 = { set_province_flag = mbc_secession secede_province = THIS }
-    }
-}
+    country_event = { #secesion of Mogadishu
+        id = 260207
+        title = "EVTNAME260207"
+        desc = "EVTDESC260207"
 
-country_event = { #secesion of Bosaso
-    id = 260205
-    title = "EVTNAME260205"
-    desc = "EVTDESC260205"
+        mean_time_to_happen = {
+            days = 0
+        }
 
-    mean_time_to_happen = {
-        days = 0
-    }
+        fire_only_once = yes
 
-    fire_only_once = yes
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = maibeli_accepts_conference
+            has_global_flag = secession_of_socotra
+            NOT = { has_global_flag = secession_of_mogadishu }
+            NOT = { has_country_flag = mogadishu_seceded }
+            NOT = { has_country_flag = socotra_seceded }
+            NOT = { has_country_flag = bosaso_seceded }
+            NOT = { has_country_flag = berbera_seceded }
+            NOT = { has_country_flag = massawa_seceded }
+            NOT = { has_country_flag = assab_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            1868 = { owned_by = ETH }
+        }
 
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = maibeli_accepts_conference
-        has_global_flag = secession_of_berbera
-        NOT = { has_global_flag = secession_of_bosaso }
-        NOT = { has_country_flag = bosaso_seceded }
-        NOT = { has_country_flag = berbera_seceded }
-        NOT = { has_country_flag = massawa_seceded }
-        NOT = { has_country_flag = assab_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        1872 = { owned_by = ETH }
-    }
-
-    immediate = {
-        set_country_flag = bosaso_seceded
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_bosaso
-        1872 = { set_province_flag = mbc_secession secede_province = THIS }
-    }
-}
-
-country_event = { #secesion of Socotra
-    id = 260206
-    title = "EVTNAME260206"
-    desc = "EVTDESC260206"
-
-    mean_time_to_happen = {
-        days = 0
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_mogadishu
+            set_country_flag = mogadishu_seceded
+            1868 = { set_province_flag = mbc_secession secede_province = THIS }
+        }
     }
 
-    fire_only_once = yes
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = maibeli_accepts_conference
-        has_global_flag = secession_of_bosaso
-        NOT = { has_global_flag = secession_of_socotra }
-        NOT = { has_country_flag = socotra_seceded }
-        NOT = { has_country_flag = bosaso_seceded }
-        NOT = { has_country_flag = berbera_seceded }
-        NOT = { has_country_flag = massawa_seceded }
-        NOT = { has_country_flag = assab_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        1177 = { owned_by = ETH }
-    }
-
-    immediate = {
-        set_country_flag = socotra_seceded
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_socotra
-        1177 = { set_province_flag = mbc_secession secede_province = THIS }
-    }
-}
-
-country_event = { #secesion of Mogadishu
-    id = 260207
-    title = "EVTNAME260207"
-    desc = "EVTDESC260207"
-
-    mean_time_to_happen = {
-        days = 0
-    }
-
-    fire_only_once = yes
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = maibeli_accepts_conference
-        has_global_flag = secession_of_socotra
-        NOT = { has_global_flag = secession_of_mogadishu }
-        NOT = { has_country_flag = mogadishu_seceded }
-        NOT = { has_country_flag = socotra_seceded }
-        NOT = { has_country_flag = bosaso_seceded }
-        NOT = { has_country_flag = berbera_seceded }
-        NOT = { has_country_flag = massawa_seceded }
-        NOT = { has_country_flag = assab_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        1868 = { set_province_flag = mbc_secession owned_by = ETH }
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_mogadishu
-        set_country_flag = mogadishu_seceded
-        1868 = { secede_province = THIS }
-    }
-}
 
 ######## Maibeli Rejection - No Secession Events ########
 
-country_event = { # Congress reaction to Maibeli rejection
-    id = 260208
-    title = "EVTNAME260208"
-    desc = "EVTDESC260208"
+    country_event = { # Congress reaction to Maibeli rejection
+        id = 260208
+        title = "EVTNAME260208"
+        desc = "EVTDESC260208"
 
-    mean_time_to_happen = {
-        days = 15
-    }
-
-    fire_only_once = yes
-
-    trigger = {
-        has_global_flag = berlin_conference
-        has_global_flag = maibeli_rejects_conference
-        has_country_flag = maibeli_conference_attended
-        is_greater_power = yes
-        NOT = { has_global_flag = maibeli_rejection_war }
-    }
-
-    option = {
-        name = "EVTOPTA260208" # We must force every term of the treaty (Declares war on Ma'ibeli)
-        prestige = 30
-        war = {
-            target = ETH
-            attacker_goal = {
-                casus_belli = make_puppet
-            }
-            defender_goal = {
-                casus_belli = status_quo
-            }
-            call_ally = no
+        mean_time_to_happen = {
+            days = 15
         }
-        set_global_flag = maibeli_rejection_war
-        set_country_flag = maibeli_conference_defender
-        set_country_flag = exclusive_make_puppet_CB
 
-        ai_chance = {
-            factor = 0.7
-            modifier = {
-                factor = 0.5
-                relation = { who = ETH value = 75 }
-            }
+        fire_only_once = yes
+
+        trigger = {
+            has_global_flag = berlin_conference
+            has_global_flag = maibeli_rejects_conference
+            has_country_flag = maibeli_conference_attended
+            is_greater_power = yes
+            NOT = { has_global_flag = maibeli_rejection_war }
         }
-    }
 
-    option = {
-        name = "EVTOPTB260208" # We accept and will negotiate with Ma'ibeli
-        prestige = -50
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_attended  }
-            relation = { who = THIS value = -100 }
-        }
-        badboy = 1
-        set_global_flag = maibeli_rejection_accepted
-        set_country_flag = maibeli_defender
-
-        ai_chance = {
-            factor = 0.3
-            modifier = {
-                factor = 3
-                relation = { who = ETH value = 100 }
-            }
-        }
-    }
-}
-
-country_event = { # Maibeli rejection war ends, conference wins / Treaty of Tipsbyen
-    id = 260209
-    title = "EVTNAME260209"
-    desc = "EVTDESC260209"
-    major = yes
-
-    mean_time_to_happen = {
-        months = 2
-    } 
-
-    trigger = {
-        OR = { 
-            has_global_flag = maibeli_rejection_war
-            has_global_flag = great_power_intervention_on_maibeli
-        }
-        is_at_war = no
-        ETH = { is_vassal = yes }
-        has_country_flag = maibeli_conference_defender
-        NOT = { has_global_flag = treaty_of_tipsbyen }
-    }
-
-    option = {
-        name = "EVTOPTA260209"
-        prestige = 20
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_attended  }
-            relation = { who = THIS value = 50 }
-        }
-        set_global_flag = treaty_of_tipsbyen
-        clr_country_flag = exclusive_make_puppet_CB
-    }
-}
-
-country_event = { # Maibeli rejection war ends, conference loses / Treaty of Maibeli City
-    id = 260210
-    title = "EVTNAME260210"
-    desc = "EVTDESC260210"
-    major = yes
-
-    mean_time_to_happen = {
-        months = 48
-    }
-
-    trigger = {
-        tag = ETH
-        has_global_flag = maibeli_rejection_war
-        is_at_war = yes
-        1857 = { controlled_by = THIS }
-        1859 = { controlled_by = THIS }
-        1872 = { controlled_by = THIS }
-    }
-
-    option = {
-        name = "EVTOPTA260210"
-        prestige = 70
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_attended  }
-            relation = { who = THIS value = -50 }
-        }
-        set_global_flag = treaty_of_maibeli
-        research_points = 7000 
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - Eritrea secession 
-    id = 260211
-    title = "EVTNAME260211"
-    desc = "EVTDESC260211"
-
-    mean_time_to_happen = {
-        days = 1
-        modifier = {
-            factor = 0
-            OR = { 
-                tag = NUR
-                tag = OUD
-                tag = NET
-                tag = SWI
-                tag = SIB
-                tag = UNS
-                tag = ITA
-                tag = ENL 
-            }
-        }
-    }
-
-    fire_only_once = yes
-    allow_multiple_instances = no
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        NOT = { has_country_flag = maibeli_conference_defender }
-        NOT = { has_global_flag = secession_of_eritrea }
-        NOT = { has_country_flag = eritrea_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        ENG_1848 = { owned_by = ETH }
-    }
-
-    immediate = {
-        set_country_flag = eritrea_seceded
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_eritrea
-        any_province = {
-            limit = { region = ENG_1848 }
-            set_province_flag = tot_secession
-        }
-        ENG_1848 = { secede_province = THIS }
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - North Somaliland secession 
-    id = 260212
-    title = "EVTNAME260212"
-    desc = "EVTDESC260212"
-
-    mean_time_to_happen = {
-        days = 1
-        modifier = {
-            factor = 0
-            OR = { 
-                tag = NUR
-                tag = OUD
-                tag = NET
-                tag = SWI
-                tag = SIB
-                tag = UNS
-                tag = ITA
-                tag = ENL 
-            }
-        }
-    }
-
-    fire_only_once = yes
-    allow_multiple_instances = no
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        NOT = { has_country_flag = maibeli_conference_defender}
-        NOT = { has_global_flag = secession_of_north_somaliland }
-        NOT = { has_country_flag = north_somaliland_seceded }
-        NOT = { has_country_flag = eritrea_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        SOM_1872 = { owned_by = ETH } 
-    }
-
-    immediate = {
-        set_country_flag = north_somaliland_seceded
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_north_somaliland
-        any_province = {
-            limit = { region = SOM_1872 }
-            set_province_flag = tot_secession
-        }
-        SOM_1872 = { secede_province = THIS }
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - South Somaliland secession 
-    id = 260213
-    title = "EVTNAME260213"
-    desc = "EVTDESC260213"
-
-    mean_time_to_happen = {
-        days = 1
-        modifier = {
-            factor = 0
-            tag = HAE
-        }
-    }
-
-    fire_only_once = yes
-    allow_multiple_instances = no
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        NOT = { has_country_flag = maibeli_conference_defender }
-        NOT = { has_global_flag = secession_of_south_somaliland }
-        NOT = { has_country_flag = south_somaliland_seceded }
-        NOT = { has_country_flag = north_somaliland_seceded }
-        NOT = { has_country_flag = eritrea_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        SOM_1868 = { owned_by = ETH } 
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_country_flag = south_somaliland_seceded
-        set_global_flag = secession_of_south_somaliland
-        SOM_1868 = { secede_province = THIS }
-        any_province = {
-            limit = { region = SOM_1868 }
-            set_province_flag = tot_secession
-        }
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - Mogadishu secession 
-    id = 260214
-    title = "EVTNAME260214"
-    desc = "EVTDESC260214"
-
-    mean_time_to_happen = {
-        days = 1
-        modifier = {
-            factor = 0
-            tag = HAE
-        }
-    }
-
-    fire_only_once = yes
-    allow_multiple_instances = no
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        has_global_flag = secession_of_maibeli
-        NOT = { has_country_flag = maibeli_conference_defender }
-        NOT = { has_global_flag = secession_of_mogadishu_typsbien }
-        NOT = { has_country_flag = mogadishu_seceded_typsbien }
-        NOT = { has_country_flag = south_somaliland_seceded }
-        NOT = { has_country_flag = north_somaliland_seceded }
-        NOT = { has_country_flag = eritrea_seceded }
-
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-    }
-
-    immediate = {
-        set_country_flag = mogadishu_seceded_typsbien
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_mogadishu_typsbien
-        1868 = { secede_province = THIS set_province_flag = tot_secession }
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - Socotra secession 
-    id = 260215
-    title = "EVTNAME260215"
-    desc = "EVTDESC260215"
-
-    mean_time_to_happen = {
-        days = 1
-        modifier = {
-            factor = 0
-            tag = HAE
-        }
-    }
-
-    fire_only_once = yes
-    allow_multiple_instances = no
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        has_global_flag = secession_of_maibeli
-        NOT = { has_country_flag = maibeli_conference_defender }
-        NOT = { has_global_flag = secession_of_socotra_typsbien }
-        NOT = { has_country_flag = socotra_seceded_typsbien }
-        NOT = { has_country_flag = south_somaliland_seceded }
-        NOT = { has_country_flag = north_somaliland_seceded }
-        NOT = { has_country_flag = eritrea_seceded }
-        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
-        1177 = { owned_by = ETH } 
-    }
-
-    immediate = {
-        set_country_flag = socotra_seceded_typsbien
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_socotra_typsbien
-        1177 = { secede_province = THIS set_province_flag = tot_secession }
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - Defender gets Maibeli 
-    id = 260216
-    title = "EVTNAME260216"
-    desc = "EVTDESC260216"
-
-    mean_time_to_happen = {
-        days = 1
-    }
-
-    fire_only_once = yes
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        has_country_flag = maibeli_conference_defender
-        NOT = { has_country_flag = maibeli_seceded }
-        NOT = { has_country_flag = socotra_seceded_typsbien }
-        NOT = { has_country_flag = mogadishu_seceded_typsbien }
-        NOT = { has_country_flag = south_somaliland_seceded }
-        NOT = { has_country_flag = north_somaliland_seceded }
-        NOT = { has_country_flag = eritrea_seceded }
-        NOT = { has_global_flag = secession_of_maibeli }
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_maibeli
-        set_country_flag = maibeli_seceded
-        any_province = {
-            limit = { region = ETH_1853 }
-            set_province_flag = tot_secession
-        }
-        any_province = {
-            limit = { region = ETH_1852 }
-            set_province_flag = tot_secession
-        }
-        any_province = {
-            limit = { region = ETH_1859 }
-            set_province_flag = tot_secession
-        }
-        any_province = {
-            limit = { region = ETH_1865 }
-            set_province_flag = tot_secession
-        }
-        ETH_1853 = { secede_province = THIS } 
-        ETH_1852 = { secede_province = THIS } 
-        ETH_1859 = { secede_province = THIS } 
-        ETH_1865 = { secede_province = THIS }
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - Eritrea Owner gets Sudan
-    id = 260217
-    title = "EVTNAME260217"
-    desc = "EVTDESC260217"
-
-    mean_time_to_happen = {
-        days = 0
-    }
-
-    fire_only_once = yes
-
-    trigger = {
-        ENG_1848 = { owned_by = THIS }
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        has_country_flag = eritrea_seceded
-        NOT = { has_country_flag = sudan_seceded }
-        NOT = { has_global_flag = secession_of_sudan }
-        OR = { 
-            EGY_1827 = { owned_by = ETH }
-            EGY_1834 = { owned_by = ETH }
-        }
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_global_flag = secession_of_sudan
-        set_country_flag = sudan_seceded
-        SUD = { all_core = { limit = { owned_by = ETH } secede_province = THIS } }
-    }
-}
-
-country_event = { # Treaty of Tipsbyen - Defender gets Maibeli colonies 
-    id = 2602180
-    title = "EVTNAME2602180"
-    desc = "EVTDESC2602180"
-
-    mean_time_to_happen = {
-        days = 0
-    }
-
-    fire_only_once = yes
-
-    trigger = {
-        has_country_flag = maibeli_conference_attended
-        has_global_flag = treaty_of_tipsbyen
-        has_country_flag = maibeli_conference_defender
-        has_global_flag = secession_of_maibeli
-        has_global_flag = secession_of_sudan
-        NOT = { has_country_flag = maibeli_colonies_seceded }
-    }
-
-    option = {
-        name = "EVT260202OPTA"
-        set_country_flag = maibeli_colonies_seceded
-        ETH = {
-            any_owned = { 
-                limit = { NOT = { is_core = ETH owned_by = ETH } } 
-                secede_province = THIS 
-            }
-        }
-    }
-}
-
-country_event = { # Negotiation of Maibeli with the great power
-    id = 260218
-    title = "EVTNAME260218"
-    desc = "EVTDESC260218"
-    
-    trigger = {
-        has_global_flag = maibeli_rejection_accepted
-        has_country_flag = maibeli_defender
-        NOT = { has_global_flag = maibeli_gp_domination }
-        NOT = { has_global_flag = maibeli_gp_competition }
-    }
-    
-    mean_time_to_happen = {
-        days = 15
-    }
-
-    option = {
-        name = "EVT260218OPTA" # We'll invest on them for further reformation
-        SUD = { all_core = { limit = { owned_by = ETH } secede_province = THIS } }
-        diplomatic_influence = { who = ETH value = 400 }
-        relation = { who = ETH value = 50 }
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_attended  }
-            relation = { who = THIS value = 50 }
-            diplomatic_influence = { who = ETH value = 100 }
-        }
-        ETH = {
-            remove_country_modifier = uncivilized_isolationism
-            add_country_modifier = { name = western_influences duration = -1 }
-            add_country_modifier = { name = conference_educational_mission duration = 3650 }
-            add_country_modifier = { name = missionary_activity duration = 1825 }
-            research_points = 2000
-            country_event = 260219
-        }
-        money = -100000
-        set_global_flag = maibeli_gp_domination
-        ai_chance = {
-            factor = 0.4
-            modifier = {
-                factor = 1.5
-                relation = { who = ETH value = 100 }
-            }
-        }
-    }
-    
-    option = {
-        name = "EVT260218OPTB" # A fair shared influence for the conference assistants is okay
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_attended  }
-            relation = { who = THIS value = 50 }
-            diplomatic_influence = { who = ETH value = 100 }
-        }
-        ETH = {
-            remove_country_modifier = uncivilized_isolationism
-            add_country_modifier = { name = western_influences duration = -1 }
-            add_country_modifier = { name = conference_educational_mission duration = 3650 }
-            add_country_modifier = { name = missionary_activity duration = 1825 }
-            research_points = 1000
-            country_event = 260220
-        }
-        set_global_flag = maibeli_gp_competition
-        ai_chance = {
-            factor = 0.6
-            modifier = {
-                factor = 1.5
-                ai = yes
-            }
-        }
-    } 
-}
-
-country_event = { # Notification for gp domination
-    id = 260219
-    title = "EVTNAME260219"
-    desc = "EVTDESC260219"
-    
-    is_triggered_only = yes
-
-    option = {
-        name = "EVT260219OPTA"
-        money = 100000
-        militancy = 5
-        consciuness = 5
-    }  
-}
-
-country_event = { # Notification of trade competence in Maibeli
-    id = 260220
-    title = "EVTNAME260220"
-    desc = "EVTDESC260220"
-    
-    is_triggered_only = yes
-
-    option = {
-        name = "EVT260220OPTA"
-        militancy = 3
-        consciuness = 3
-    }  
-}
-
-####### Province Exchanges ########
-
-country_event = { # Someone owns a MB conference province (main conference)
-    id = 2602210
-    title = "EVTNAME260221"
-    desc = "EVTDESC260221"
-    picture = Picture
-    
-    mean_time_to_happen = {
-        days = 5
-    }
-    trigger = {
-        has_global_flag = maibeli_accepts_conference
-        NOT = { tag = ETH }
-        ETH = { civilized = no }
-        THIS = {
-            any_owned_province = { is_core = ETH }
-                OR = { 
-                    AND = { NOT = { has_country_flag = assab_seceded } owns = 1851 }
-                    AND = { NOT = { has_country_flag = massawa_seceded } owns = 1849 }
-                    AND = { NOT = { has_country_flag = berbera_seceded } owns = 1873 }
-                    AND = { NOT = { has_country_flag = bosaso_seceded } owns = 1872 }
-                    AND = { NOT = { has_country_flag = socotra_seceded } owns = 1177 }
-                    AND = { NOT = { has_country_flag = mogadishu_seceded } owns = 1868 }
-                }
-            }
-        NOT = { has_country_flag = maibeli_province_negotiation }
-    }
-    
-    #fire_only_once = yes
-
-    option = {
-        name = "EVT260221OPTA" # We'll cede the province
-            any_owned = { 
-                limit = { 
-                    is_core = ETH
-                    owned_by = THIS
-                    NOT = { has_province_flag = mbc_secession }
-                } 
-                secede_province = ETH 
-            }
-            
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }
-    
-    immediate = {
-        set_country_flag = maibeli_province_negotiation
-    }
-
-    option = {
-        name = "EVT260221OPTB" # We dont concede the province
-
-        random_country = { 
-            limit = { 
-                has_country_flag = maibeli_conference_attended 
-                NOT = { any_owned_province = { is_core = ETH } } 
-            } 
-            country_event = { id = 2602220 days = 5 }
-        }
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor =
-            }
-        }
-    }   
-}
-
-country_event = { # Someone owns a MB conference province (treaty of tipsbyen)
-    id = 2602211
-    title = "EVTNAME260221"
-    desc = "EVTDESC260221"
-    picture = Picture
-    
-    mean_time_to_happen = {
-        days = 5
-    }
-    trigger = {
-        has_global_flag = treaty_of_tipsbyen
-        NOT = { tag = ETH }
-        ETH = { civilized = no }
-        THIS = {
-            any_owned_province = { is_core = ETH }
-                OR = { 
-                    AND = { NOT = { has_country_flag = north_somaliland_seceded } SOM_1872 = { owned_by = THIS } }
-                    AND = { NOT = { has_country_flag = south_somaliland_seceded } SOM_1868 = { owned_by = THIS } }
-                    AND = { NOT = { has_country_flag = eritrea_seceded } ENG_1848 = { owned_by = THIS } }
-                    AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1853 = { owned_by = THIS } }
-                    AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1852 = { owned_by = THIS } }
-                    AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1859 = { owned_by = THIS } }
-                    AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1865 = { owned_by = THIS } }
-                    AND = { NOT = { has_country_flag = socotra_seceded_typsbien } owns = 1177 }
-                    AND = { NOT = { has_country_flag = mogadishu_seceded_typsbien } owns = 1868 }
-                }
-            }
-        NOT = { has_country_flag = maibeli_province_negotiation }
-    }
-    
-    #fire_only_once = yes
-
-    option = {
-        name = "EVT260221OPTA" # We'll cede the province
-            any_owned = { 
-                limit = { 
-                    is_core = ETH
-                    owned_by = THIS
-                    NOT = { has_province_flag = tot_secession } 
-                } 
-                secede_province = ETH 
-            }
-            
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }
-    
-    immediate = {
-        set_country_flag = maibeli_province_negotiation
-    }
-
-    option = {
-        name = "EVT260221OPTB" # We dont concede the province
-
-        random_country = { 
-            limit = { 
-                has_country_flag = maibeli_conference_attended 
-                NOT = { any_owned_province = { is_core = ETH } } 
-            } 
-            country_event = { id = 2602221 days = 5 }
-        }
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor =
-            }
-        }
-    }   
-}
-
-country_event = { # Response of the country in the conference which is interested in the province (main conference)
-    id = 2602220
-    title = "EVTNAME2602220"
-    desc = "EVTDESC2602220"
-    
-    is_triggered_only = yes
-
-    immediate = {
-            any_country = { limit = { owns = 1851 has_country_flag = maibeli_province_negotiation } set_country_flag = assab_seceded set_global_flag = secession_of_assab }
-            any_country = { limit = { owns = 1851 has_country_flag = maibeli_province_negotiation } set_country_flag = assab_seceded_typsbien set_global_flag = secession_of_assab_typsbien }
-            any_country = { limit = { owns = 1849 has_country_flag = maibeli_province_negotiation } set_country_flag = massawa_seceded set_global_flag = secession_of_massawa }
-            any_country = { limit = { owns = 1873 has_country_flag = maibeli_province_negotiation } set_country_flag = berbera_seceded set_global_flag = secession_of_berbera } 
-            any_country = { limit = { owns = 1872 has_country_flag = maibeli_province_negotiation } set_country_flag = bosaso_seceded set_global_flag = secession_of_bosaso } 
-            any_country = { limit = { owns = 1177 has_country_flag = maibeli_province_negotiation } set_country_flag = socotra_seceded set_global_flag = secession_of_socotra } 
-            any_country = { limit = { owns = 1868 has_country_flag = maibeli_province_negotiation } set_country_flag = mogadishu_seceded set_global_flag = secession_of_mogadishu }
-    }
-
-    option = {
-        name = "EVT260222OPTA" # We accept the province loss
-        money = 100000
-        clr_country_flag = maibeli_province_negotiation
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }
-    
-    option = {
-        name = "EVT260222OPTB" # We refuse to accept this
-        clr_country_flag = maibeli_province_negotiation
-        casus_belli = {
-            target = FROM
-            type = place_in_the_sun
-            months = 12
-        }
-        
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }
-    
-}
-
-country_event = { # Response of the country in the conference which is interested in the province (treaty of tipsbyen)
-    id = 2602221
-    title = "EVTNAME2602221"
-    desc = "EVTDESC2602221"
-    
-    is_triggered_only = yes
-
-    immediate = {
-            any_country = { limit = { SOM_1872 = { owned_by = THIS has_country_flag = maibeli_province_negotiation } } set_country_flag = north_somaliland_seceded set_global_flag = secession_of_north_somaliland }
-            any_country = { limit = { SOM_1868 = { owned_by = THIS has_country_flag = maibeli_province_negotiation } } set_country_flag = south_somaliland_seceded set_global_flag = secession_of_south_somaliland }
-            any_country = { limit = { ENG_1848 = { owned_by = THIS has_country_flag = maibeli_province_negotiation } } set_country_flag = eritrea_seceded set_global_flag = secession_of_eritrea }
-            any_country = { limit = { owns = 1177 has_global_flag = treaty_of_tipsbyen has_country_flag = maibeli_province_negotiation } set_country_flag = socotra_seceded_typsbien set_global_flag = secession_of_socotra_typsbien }
-            any_country = { limit = { owns = 1868 has_global_flag = treaty_of_tipsbyen has_country_flag = maibeli_province_negotiation }  set_country_flag = mogadishu_seceded_typsbien set_global_flag = secession_of_mogadishu_typsbien }
-    }
-
-    option = {
-        name = "EVT260222OPTA" # We accept the province loss
-        money = 100000
-        clr_country_flag = maibeli_province_negotiation
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }
-    
-    option = {
-        name = "EVT260222OPTB" # We refuse to accept this
-        clr_country_flag = maibeli_province_negotiation
-        casus_belli = {
-            target = FROM
-            type = place_in_the_sun
-            months = 12
-        }
-        
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }
-    
-}
-
-country_event =  { # Ultimatum for owning a province in Maibeli interior (ToT)
-    id = 260223
-    title = "EVTNAME260223"
-    desc = "EVTDESC260223"
-    mean_time_to_happen = {
-        days = 5
-    }
-    trigger = {
-        has_global_flag = treaty_of_tipsbyen
-        NOT = { tag = ETH }
-        # ETH = { war = no }
-        THIS = {
-            OR = {
-                owns = 1855
-                owns = 1857
-                owns = 1859
-                owns = 1867
-            }
-        }
-        NOT = { has_country_flag = maibeli_conference_defender }
-        NOT = { has_country_flag = maibeli_province_negotiation }
-    }
-
-    option = {
-        name = "EVT260223OPTA" # Cede the province peacefully
-        any_owned = { 
-            limit = { 
-                is_core = ETH
-                owned_by = THIS
-                OR = {
-                    ETH_1853 = { owned_by = THIS }
-                    ETH_1857 = { owned_by = THIS }
-                    ETH_1859 = { owned_by = THIS }
-                    ETH_1865 = { owned_by = THIS }
-                }
-            } 
-            secede_province = ETH 
-        }
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }
-
-    option = {
-        name = "EVT260223OPTB" # Refuse to cede the province
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_defender }
+        option = {
+            name = "EVTOPTA260208" # We must force every term of the treaty (Declares war on Ma'ibeli)
+            prestige = 30
             war = {
-                target = THIS
+                target = ETH
                 attacker_goal = {
-                    casus_belli = humiliate
+                    casus_belli = make_puppet
                 }
                 defender_goal = {
                     casus_belli = status_quo
                 }
                 call_ally = no
             }
+            set_global_flag = maibeli_rejection_war
+            set_country_flag = maibeli_conference_defender
+            set_country_flag = exclusive_make_puppet_CB
+
+            ai_chance = {
+                factor = 0.7
+                modifier = {
+                    factor = 0.5
+                    relation = { who = ETH value = 75 }
+                }
+            }
         }
-        set_country_flag = maibeli_province_usurper
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
+
+        option = {
+            name = "EVTOPTB260208" # We accept and will negotiate with Ma'ibeli
+            prestige = -50
+            any_country = {
+                limit = { has_country_flag = maibeli_conference_attended  }
+                relation = { who = THIS value = -100 }
+            }
+            badboy = 1
+            set_global_flag = maibeli_rejection_accepted
+            set_country_flag = maibeli_defender
+
+            ai_chance = {
+                factor = 0.3
+                modifier = {
+                    factor = 3
+                    relation = { who = ETH value = 100 }
+                }
             }
         }
     }
-}
 
-country_event = { # Maibeli conference defender wins the war
-    id = 260224
-    title = "EVTNAME260224"
-    desc = "EVTDESC260224"
+    country_event = { # Maibeli rejection war ends, conference wins / Treaty of Tipsbyen
+        id = 260209
+        title = "EVTNAME260209"
+        desc = "EVTDESC260209"
+        major = yes
+
+        mean_time_to_happen = {
+            months = 2
+        } 
+
+        trigger = {
+            OR = { 
+                has_global_flag = maibeli_rejection_war
+                has_global_flag = great_power_intervention_on_maibeli
+            }
+            is_at_war = no
+            ETH = { is_vassal = yes }
+            has_country_flag = maibeli_conference_defender
+            NOT = { has_global_flag = treaty_of_tipsbyen }
+        }
+
+        option = {
+            name = "EVTOPTA260209"
+            prestige = 20
+            any_country = {
+                limit = { has_country_flag = maibeli_conference_attended  }
+                relation = { who = THIS value = 50 }
+            }
+            set_global_flag = treaty_of_tipsbyen
+            clr_country_flag = exclusive_make_puppet_CB
+        }
+    }
+
+    country_event = { # Maibeli rejection war ends, conference loses / Treaty of Maibeli City
+        id = 260210
+        title = "EVTNAME260210"
+        desc = "EVTDESC260210"
+        major = yes
+
+        mean_time_to_happen = {
+            months = 48
+        }
+
+        trigger = {
+            tag = ETH
+            has_global_flag = maibeli_rejection_war
+            is_at_war = yes
+            1857 = { controlled_by = THIS }
+            1859 = { controlled_by = THIS }
+            1872 = { controlled_by = THIS }
+        }
+
+        option = {
+            name = "EVTOPTA260210"
+            prestige = 70
+            any_country = {
+                limit = { has_country_flag = maibeli_conference_attended  }
+                relation = { who = THIS value = -50 }
+            }
+            set_global_flag = treaty_of_maibeli
+            research_points = 7000 
+        }
+    }
+
+####### Treaty of Tipsbyen Events #######
+
+    country_event = { # Treaty of Tipsbyen - Eritrea secession 
+        id = 260211
+        title = "EVTNAME260211"
+        desc = "EVTDESC260211"
+
+        mean_time_to_happen = {
+            days = 1
+            modifier = {
+                factor = 0
+                OR = { 
+                    tag = NUR
+                    tag = OUD
+                    tag = NET
+                    tag = SWI
+                    tag = SIB
+                    tag = UNS
+                    tag = ITA
+                    tag = ENL 
+                }
+            }
+        }
+
+        fire_only_once = yes
+        allow_multiple_instances = no
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            NOT = { has_country_flag = maibeli_conference_defender }
+            NOT = { has_global_flag = secession_of_eritrea }
+            NOT = { has_country_flag = eritrea_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            ENG_1848 = { owned_by = ETH }
+        }
+
+        immediate = {
+            set_country_flag = eritrea_seceded
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_eritrea
+            any_province = {
+                limit = { region = ENG_1848 }
+                set_province_flag = tot_secession
+            }
+            ENG_1848 = { secede_province = THIS }
+        }
+    }
+
+    country_event = { # Treaty of Tipsbyen - North Somaliland secession 
+        id = 260212
+        title = "EVTNAME260212"
+        desc = "EVTDESC260212"
+
+        mean_time_to_happen = {
+            days = 1
+            modifier = {
+                factor = 0
+                OR = { 
+                    tag = NUR
+                    tag = OUD
+                    tag = NET
+                    tag = SWI
+                    tag = SIB
+                    tag = UNS
+                    tag = ITA
+                    tag = ENL 
+                }
+            }
+        }
+
+        fire_only_once = yes
+        allow_multiple_instances = no
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            NOT = { has_country_flag = maibeli_conference_defender}
+            NOT = { has_global_flag = secession_of_north_somaliland }
+            NOT = { has_country_flag = north_somaliland_seceded }
+            NOT = { has_country_flag = eritrea_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            SOM_1872 = { owned_by = ETH } 
+        }
+
+        immediate = {
+            set_country_flag = north_somaliland_seceded
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_north_somaliland
+            any_province = {
+                limit = { region = SOM_1872 }
+                set_province_flag = tot_secession
+            }
+            SOM_1872 = { secede_province = THIS }
+        }
+    }
+
+    country_event = { # Treaty of Tipsbyen - South Somaliland secession 
+        id = 260213
+        title = "EVTNAME260213"
+        desc = "EVTDESC260213"
+
+        mean_time_to_happen = {
+            days = 1
+            modifier = {
+                factor = 0
+                tag = HAE
+            }
+        }
+
+        fire_only_once = yes
+        allow_multiple_instances = no
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            NOT = { has_country_flag = maibeli_conference_defender }
+            NOT = { has_global_flag = secession_of_south_somaliland }
+            NOT = { has_country_flag = south_somaliland_seceded }
+            NOT = { has_country_flag = north_somaliland_seceded }
+            NOT = { has_country_flag = eritrea_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            SOM_1868 = { owned_by = ETH } 
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_country_flag = south_somaliland_seceded
+            set_global_flag = secession_of_south_somaliland
+            SOM_1868 = { secede_province = THIS }
+            any_province = {
+                limit = { region = SOM_1868 }
+                set_province_flag = tot_secession
+            }
+        }
+    }
+
+    country_event = { # Treaty of Tipsbyen - Mogadishu secession 
+        id = 260214
+        title = "EVTNAME260214"
+        desc = "EVTDESC260214"
+
+        mean_time_to_happen = {
+            days = 1
+            modifier = {
+                factor = 0
+                tag = HAE
+            }
+        }
+
+        fire_only_once = yes
+        allow_multiple_instances = no
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            has_global_flag = secession_of_maibeli
+            NOT = { has_country_flag = maibeli_conference_defender }
+            NOT = { has_global_flag = secession_of_mogadishu_typsbien }
+            NOT = { has_country_flag = mogadishu_seceded_typsbien }
+            NOT = { has_country_flag = south_somaliland_seceded }
+            NOT = { has_country_flag = north_somaliland_seceded }
+            NOT = { has_country_flag = eritrea_seceded }
+
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+        }
+
+        immediate = {
+            set_country_flag = mogadishu_seceded_typsbien
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_mogadishu_typsbien
+            1868 = { secede_province = THIS set_province_flag = tot_secession }
+        }
+    }
+
+    country_event = { # Treaty of Tipsbyen - Socotra secession 
+        id = 260215
+        title = "EVTNAME260215"
+        desc = "EVTDESC260215"
+
+        mean_time_to_happen = {
+            days = 1
+            modifier = {
+                factor = 0
+                tag = HAE
+            }
+        }
+
+        fire_only_once = yes
+        allow_multiple_instances = no
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            has_global_flag = secession_of_maibeli
+            NOT = { has_country_flag = maibeli_conference_defender }
+            NOT = { has_global_flag = secession_of_socotra_typsbien }
+            NOT = { has_country_flag = socotra_seceded_typsbien }
+            NOT = { has_country_flag = south_somaliland_seceded }
+            NOT = { has_country_flag = north_somaliland_seceded }
+            NOT = { has_country_flag = eritrea_seceded }
+            NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+            1177 = { owned_by = ETH } 
+        }
+
+        immediate = {
+            set_country_flag = socotra_seceded_typsbien
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_socotra_typsbien
+            1177 = { secede_province = THIS set_province_flag = tot_secession }
+        }
+    }
+
+    country_event = { # Treaty of Tipsbyen - Defender gets Maibeli 
+        id = 260216
+        title = "EVTNAME260216"
+        desc = "EVTDESC260216"
+
+        mean_time_to_happen = {
+            days = 1
+        }
+
+        fire_only_once = yes
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            has_country_flag = maibeli_conference_defender
+            NOT = { has_country_flag = maibeli_seceded }
+            NOT = { has_country_flag = socotra_seceded_typsbien }
+            NOT = { has_country_flag = mogadishu_seceded_typsbien }
+            NOT = { has_country_flag = south_somaliland_seceded }
+            NOT = { has_country_flag = north_somaliland_seceded }
+            NOT = { has_country_flag = eritrea_seceded }
+            NOT = { has_global_flag = secession_of_maibeli }
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_maibeli
+            set_country_flag = maibeli_seceded
+            any_province = {
+                limit = { region = ETH_1853 }
+                set_province_flag = tot_secession
+            }
+            any_province = {
+                limit = { region = ETH_1852 }
+                set_province_flag = tot_secession
+            }
+            any_province = {
+                limit = { region = ETH_1859 }
+                set_province_flag = tot_secession
+            }
+            any_province = {
+                limit = { region = ETH_1865 }
+                set_province_flag = tot_secession
+            }
+            ETH_1853 = { secede_province = THIS } 
+            ETH_1852 = { secede_province = THIS } 
+            ETH_1859 = { secede_province = THIS } 
+            ETH_1865 = { secede_province = THIS }
+        }
+    }
+
+    country_event = { # Treaty of Tipsbyen - Eritrea Owner gets Sudan
+        id = 260217
+        title = "EVTNAME260217"
+        desc = "EVTDESC260217"
+
+        mean_time_to_happen = {
+            days = 0
+        }
+
+        fire_only_once = yes
+
+        trigger = {
+            ENG_1848 = { owned_by = THIS }
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            has_country_flag = eritrea_seceded
+            NOT = { has_country_flag = sudan_seceded }
+            NOT = { has_global_flag = secession_of_sudan }
+            OR = { 
+                EGY_1827 = { owned_by = ETH }
+                EGY_1834 = { owned_by = ETH }
+            }
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_global_flag = secession_of_sudan
+            set_country_flag = sudan_seceded
+            SUD = { all_core = { limit = { owned_by = ETH } secede_province = THIS } }
+        }
+    }
+
+    country_event = { # Treaty of Tipsbyen - Defender gets Maibeli colonies 
+        id = 2602180
+        title = "EVTNAME2602180"
+        desc = "EVTDESC2602180"
+
+        mean_time_to_happen = {
+            days = 0
+        }
+
+        fire_only_once = yes
+
+        trigger = {
+            has_country_flag = maibeli_conference_attended
+            has_global_flag = treaty_of_tipsbyen
+            has_country_flag = maibeli_conference_defender
+            has_global_flag = secession_of_maibeli
+            has_global_flag = secession_of_sudan
+            NOT = { has_country_flag = maibeli_colonies_seceded }
+        }
+
+        option = {
+            name = "EVT260202OPTA"
+            set_country_flag = maibeli_colonies_seceded
+            ETH = {
+                any_owned = { 
+                    limit = { NOT = { is_core = ETH owned_by = ETH } } 
+                    secede_province = THIS 
+                }
+            }
+        }
+    }
+
+####### Negotiations #######
+    country_event = { # Negotiation of Maibeli with the great power
+        id = 260218
+        title = "EVTNAME260218"
+        desc = "EVTDESC260218"
+        
+        trigger = {
+            has_global_flag = maibeli_rejection_accepted
+            has_country_flag = maibeli_defender
+            NOT = { has_global_flag = maibeli_gp_domination }
+            NOT = { has_global_flag = maibeli_gp_competition }
+        }
+        
+        mean_time_to_happen = {
+            days = 15
+        }
+
+        option = {
+            name = "EVT260218OPTA" # We'll invest on them for further reformation
+            SUD = { all_core = { limit = { owned_by = ETH } secede_province = THIS } }
+            diplomatic_influence = { who = ETH value = 400 }
+            relation = { who = ETH value = 50 }
+            any_country = {
+                limit = { has_country_flag = maibeli_conference_attended  }
+                relation = { who = THIS value = 50 }
+                diplomatic_influence = { who = ETH value = 100 }
+            }
+            ETH = {
+                remove_country_modifier = uncivilized_isolationism
+                add_country_modifier = { name = western_influences duration = -1 }
+                add_country_modifier = { name = conference_educational_mission duration = 3650 }
+                add_country_modifier = { name = missionary_activity duration = 1825 }
+                research_points = 2000
+                country_event = 260219
+            }
+            money = -100000
+            set_global_flag = maibeli_gp_domination
+            ai_chance = {
+                factor = 0.4
+                modifier = {
+                    factor = 1.5
+                    relation = { who = ETH value = 100 }
+                }
+            }
+        }
+        
+        option = {
+            name = "EVT260218OPTB" # A fair shared influence for the conference assistants is okay
+            any_country = {
+                limit = { has_country_flag = maibeli_conference_attended  }
+                relation = { who = THIS value = 50 }
+                diplomatic_influence = { who = ETH value = 100 }
+            }
+            ETH = {
+                remove_country_modifier = uncivilized_isolationism
+                add_country_modifier = { name = western_influences duration = -1 }
+                add_country_modifier = { name = conference_educational_mission duration = 3650 }
+                add_country_modifier = { name = missionary_activity duration = 1825 }
+                research_points = 1000
+                country_event = 260220
+            }
+            set_global_flag = maibeli_gp_competition
+            ai_chance = {
+                factor = 0.6
+                modifier = {
+                    factor = 1.5
+                    ai = yes
+                }
+            }
+        } 
+    }
+
+    country_event = { # Notification for gp domination
+        id = 260219
+        title = "EVTNAME260219"
+        desc = "EVTDESC260219"
+        
+        is_triggered_only = yes
+
+        option = {
+            name = "EVT260219OPTA"
+            money = 100000
+            militancy = 5
+            consciuness = 5
+        }  
+    }
+
+    country_event = { # Notification of trade competence in Maibeli
+        id = 260220
+        title = "EVTNAME260220"
+        desc = "EVTDESC260220"
+        
+        is_triggered_only = yes
+
+        option = {
+            name = "EVT260220OPTA"
+            militancy = 3
+            consciuness = 3
+        }  
+    }
+
+    ####### Province Exchanges ########
+
+        country_event = { # Someone owns a MB conference province (main conference)
+            id = 2602210
+            title = "EVTNAME260221"
+            desc = "EVTDESC260221"
+            picture = Picture
+            
+            mean_time_to_happen = {
+                days = 5
+            }
+            trigger = {
+                has_global_flag = maibeli_accepts_conference
+                NOT = { tag = ETH }
+                ETH = { civilized = no }
+                THIS = {
+                    any_owned_province = { is_core = ETH }
+                        OR = { 
+                            AND = { NOT = { has_country_flag = assab_seceded } owns = 1851 }
+                            AND = { NOT = { has_country_flag = massawa_seceded } owns = 1849 }
+                            AND = { NOT = { has_country_flag = berbera_seceded } owns = 1873 }
+                            AND = { NOT = { has_country_flag = bosaso_seceded } owns = 1872 }
+                            AND = { NOT = { has_country_flag = socotra_seceded } owns = 1177 }
+                            AND = { NOT = { has_country_flag = mogadishu_seceded } owns = 1868 }
+                        }
+                    }
+                NOT = { has_country_flag = maibeli_province_negotiation }
+            }
+            
+            #fire_only_once = yes
+
+            option = {
+                name = "EVT260221OPTA" # We'll cede the province
+                    any_owned = { 
+                        limit = { 
+                            is_core = ETH
+                            owned_by = THIS
+                            NOT = { has_province_flag = mbc_secession }
+                        } 
+                        secede_province = ETH 
+                    }
+                    
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+            
+            immediate = {
+                set_country_flag = maibeli_province_negotiation
+            }
+
+            option = {
+                name = "EVT260221OPTB" # We dont concede the province
+
+                random_country = { 
+                    limit = { 
+                        has_country_flag = maibeli_conference_attended 
+                        NOT = { any_owned_province = { is_core = ETH } } 
+                    } 
+                    country_event = { id = 2602220 days = 5 }
+                }
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor =
+                    }
+                }
+            }   
+        }
+
+        country_event = { # Someone owns a MB conference province (treaty of tipsbyen)
+            id = 2602211
+            title = "EVTNAME260221"
+            desc = "EVTDESC260221"
+            picture = Picture
+            
+            mean_time_to_happen = {
+                days = 5
+            }
+            trigger = {
+                has_global_flag = treaty_of_tipsbyen
+                NOT = { tag = ETH }
+                ETH = { civilized = no }
+                THIS = {
+                    any_owned_province = { is_core = ETH }
+                        OR = { 
+                            AND = { NOT = { has_country_flag = north_somaliland_seceded } SOM_1872 = { owned_by = THIS } }
+                            AND = { NOT = { has_country_flag = south_somaliland_seceded } SOM_1868 = { owned_by = THIS } }
+                            AND = { NOT = { has_country_flag = eritrea_seceded } ENG_1848 = { owned_by = THIS } }
+                            AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1853 = { owned_by = THIS } }
+                            AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1852 = { owned_by = THIS } }
+                            AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1859 = { owned_by = THIS } }
+                            AND = { NOT = { has_country_flag = maibeli_seceded } ETH_1865 = { owned_by = THIS } }
+                            AND = { NOT = { has_country_flag = socotra_seceded_typsbien } owns = 1177 }
+                            AND = { NOT = { has_country_flag = mogadishu_seceded_typsbien } owns = 1868 }
+                        }
+                    }
+                NOT = { has_country_flag = maibeli_province_negotiation }
+            }
+            
+            #fire_only_once = yes
+
+            option = {
+                name = "EVT260221OPTA" # We'll cede the province
+                    any_owned = { 
+                        limit = { 
+                            is_core = ETH
+                            owned_by = THIS
+                            NOT = { has_province_flag = tot_secession } 
+                        } 
+                        secede_province = ETH 
+                    }
+                    
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+            
+            immediate = {
+                set_country_flag = maibeli_province_negotiation
+            }
+
+            option = {
+                name = "EVT260221OPTB" # We dont concede the province
+
+                random_country = { 
+                    limit = { 
+                        has_country_flag = maibeli_conference_attended 
+                        NOT = { any_owned_province = { is_core = ETH } } 
+                    } 
+                    country_event = { id = 2602221 days = 5 }
+                }
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor =
+                    }
+                }
+            }   
+        }
+
+        country_event = { # Response of the country in the conference which is interested in the province (main conference)
+            id = 2602220
+            title = "EVTNAME2602220"
+            desc = "EVTDESC2602220"
+            
+            is_triggered_only = yes
+
+            immediate = {
+                    any_country = { limit = { owns = 1851 has_country_flag = maibeli_province_negotiation } set_country_flag = assab_seceded set_global_flag = secession_of_assab }
+                    any_country = { limit = { owns = 1851 has_country_flag = maibeli_province_negotiation } set_country_flag = assab_seceded_typsbien set_global_flag = secession_of_assab_typsbien }
+                    any_country = { limit = { owns = 1849 has_country_flag = maibeli_province_negotiation } set_country_flag = massawa_seceded set_global_flag = secession_of_massawa }
+                    any_country = { limit = { owns = 1873 has_country_flag = maibeli_province_negotiation } set_country_flag = berbera_seceded set_global_flag = secession_of_berbera } 
+                    any_country = { limit = { owns = 1872 has_country_flag = maibeli_province_negotiation } set_country_flag = bosaso_seceded set_global_flag = secession_of_bosaso } 
+                    any_country = { limit = { owns = 1177 has_country_flag = maibeli_province_negotiation } set_country_flag = socotra_seceded set_global_flag = secession_of_socotra } 
+                    any_country = { limit = { owns = 1868 has_country_flag = maibeli_province_negotiation } set_country_flag = mogadishu_seceded set_global_flag = secession_of_mogadishu }
+            }
+
+            option = {
+                name = "EVT260222OPTA" # We accept the province loss
+                money = 100000
+                clr_country_flag = maibeli_province_negotiation
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+            
+            option = {
+                name = "EVT260222OPTB" # We refuse to accept this
+                clr_country_flag = maibeli_province_negotiation
+                casus_belli = {
+                    target = FROM
+                    type = place_in_the_sun
+                    months = 12
+                }
+                
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+            
+        }
+
+        country_event = { # Response of the country in the conference which is interested in the province (treaty of tipsbyen)
+            id = 2602221
+            title = "EVTNAME2602221"
+            desc = "EVTDESC2602221"
+            
+            is_triggered_only = yes
+
+            immediate = {
+                    any_country = { limit = { SOM_1872 = { owned_by = THIS has_country_flag = maibeli_province_negotiation } } set_country_flag = north_somaliland_seceded set_global_flag = secession_of_north_somaliland }
+                    any_country = { limit = { SOM_1868 = { owned_by = THIS has_country_flag = maibeli_province_negotiation } } set_country_flag = south_somaliland_seceded set_global_flag = secession_of_south_somaliland }
+                    any_country = { limit = { ENG_1848 = { owned_by = THIS has_country_flag = maibeli_province_negotiation } } set_country_flag = eritrea_seceded set_global_flag = secession_of_eritrea }
+                    any_country = { limit = { owns = 1177 has_global_flag = treaty_of_tipsbyen has_country_flag = maibeli_province_negotiation } set_country_flag = socotra_seceded_typsbien set_global_flag = secession_of_socotra_typsbien }
+                    any_country = { limit = { owns = 1868 has_global_flag = treaty_of_tipsbyen has_country_flag = maibeli_province_negotiation }  set_country_flag = mogadishu_seceded_typsbien set_global_flag = secession_of_mogadishu_typsbien }
+            }
+
+            option = {
+                name = "EVT260222OPTA" # We accept the province loss
+                money = 100000
+                clr_country_flag = maibeli_province_negotiation
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+            
+            option = {
+                name = "EVT260222OPTB" # We refuse to accept this
+                clr_country_flag = maibeli_province_negotiation
+                casus_belli = {
+                    target = FROM
+                    type = place_in_the_sun
+                    months = 12
+                }
+                
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+            
+        }
+
+        country_event =  { # Ultimatum for owning a province in Maibeli interior (ToT)
+            id = 260223
+            title = "EVTNAME260223"
+            desc = "EVTDESC260223"
+            mean_time_to_happen = {
+                days = 5
+            }
+            trigger = {
+                has_global_flag = treaty_of_tipsbyen
+                NOT = { tag = ETH }
+                # ETH = { war = no }
+                THIS = {
+                    OR = {
+                        owns = 1855
+                        owns = 1857
+                        owns = 1859
+                        owns = 1867
+                    }
+                }
+                NOT = { has_country_flag = maibeli_conference_defender }
+                NOT = { has_country_flag = maibeli_province_negotiation }
+            }
+
+            option = {
+                name = "EVT260223OPTA" # Cede the province peacefully
+                any_owned = { 
+                    limit = { 
+                        is_core = ETH
+                        owned_by = THIS
+                        OR = {
+                            ETH_1853 = { owned_by = THIS }
+                            ETH_1857 = { owned_by = THIS }
+                            ETH_1859 = { owned_by = THIS }
+                            ETH_1865 = { owned_by = THIS }
+                        }
+                    } 
+                    secede_province = ETH 
+                }
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+
+            option = {
+                name = "EVT260223OPTB" # Refuse to cede the province
+                any_country = {
+                    limit = { has_country_flag = maibeli_conference_defender }
+                    war = {
+                        target = THIS
+                        attacker_goal = {
+                            casus_belli = humiliate
+                        }
+                        defender_goal = {
+                            casus_belli = status_quo
+                        }
+                        call_ally = no
+                    }
+                }
+                set_country_flag = maibeli_conference_usurper
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }
+        }
+
+        country_event = { # Maibeli conference defender wins the war
+            id = 260224
+            title = "EVTNAME260224"
+            desc = "EVTDESC260224"
+            
+            trigger = {
+                has_country_flag = maibeli_conference_defender
+                is_at_war = no
+                any_country = {
+                    limit = { has_country_flag = maibeli_conference_usurper }
+                    truce_with = THIS
+                    has_recently_lost_war = yes
+                }
+            }
+
+            option = {
+                name = "EVTOPTA260224"
+                country_event = { id = 260225 days = 0 }
+                ai_chance = {
+                    factor = 
+                    modifier = {
+                        factor = 
+                    }
+                }
+            }   
+        }
+
+        country_event = { # Maibeli conference defender wins the war - Return to status quo
+            id = 260225
+            title = "EVTNAME260225"
+            desc = "EVTDESC260225"
+            
+            is_triggered_only = yes
+
+            option = {
+                name = "EVTOPTA260225"
+                THIS = {
+                    any_owned_province = { is_core = ETH }
+                    secede_province = FROM
+                }
+            }
+        }
+
+country_event = { # Maibeli conference member didnt receive concessions
+    id = 260226
+    title = "EVTNAME260226"
+    desc = "EVTDESC260226"
+    picture = Picture
     
     trigger = {
-        has_country_flag = maibeli_conference_defender
-        is_at_war = no
-        any_country = {
-            limit = { has_country_flag = maibeli_conference_usurper }
-            truce_with = THIS
-            has_recently_lost_war = yes
-        }
+        has_country_flag = maibeli_conference_attended
+        has_global_flag = secession_of_mogadishu
+        NOT = { any_owned_province = { is_core = ETH owned_by = THIS } }
+        NOT = { has_country_flag = maibeli_conference_deception }
     }
-
-    option = {
-        name = "EVTOPTA260224"
-        country_event = { id = 260225 days = 0 }
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
-            }
-        }
-    }    
-}
-
-country_event = { # Maibeli conference defender wins the war - Return to status quo
-    id = 260225
-    title = "EVTNAME260225"
-    desc = "EVTDESC260225"
     
-    is_triggered_only = yes
+    mean_time_to_happen = {
+        days = 10
+    }
 
     option = {
-        name = "EVTOPTA260225"
-        THIS = {
-            any_owned_province = { is_core = ETH }
-            secede_province = FROM
+        name = "EVT260226OPTA"
+        prestige = -10
+        any_country = {
+            limit = { has_country_flag = maibeli_conference_attended }
+            relation = { who = THIS value = -25 }
         }
-    }
+        set_country_flag = maibeli_conference_deception
+    }   
 }
 
 ####### Post Conference Events ########
 
-country_event = { # Maibeli breaks something in the treaties (falls to rebels before civ)
-    id = 260230
-    title = "EVTNAME260230"
-    desc = "EVTDESC260230"
-    
-    trigger = {
-        NOT = { tag = ETH }
-        ETH = { 
-            civilized = no
-            NOT = { has_country_modifier = western_influences }
-        }
-        OR = { 
-            has_country_flag = maibeli_conference_defender
-            has_country_flag = maibeli_defender
-            owns = 1851 
-        }
-        OR = {
-                has_global_flag = maibeli_accepts_conference
-                has_global_flag = maibeli_rejection_accepted
-        }
-        1857 = { controlled_by = REB }
-        NOT = { has_global_flag = treaty_of_tipsbyen }
-    }
-    
-    fire_only_once = yes
-
-    mean_time_to_happen = {
-        days = 30
-    }
-
-    immediate = {
-        ETH = { country_event = { id = 260231 days = 1} }
-    }
-
-    option = {
-        name = "EVT260230OPTA" # Intervention of the conference (every MC great power declares war on Maibeli)
-
-        war = {
-            target = ETH
-            attacker_goal = {
-                casus_belli = make_puppet
+    country_event = { # Maibeli breaks something in the treaties (falls to rebels before civ)
+        id = 260230
+        title = "EVTNAME260230"
+        desc = "EVTDESC260230"
+        
+        trigger = {
+            NOT = { tag = ETH }
+            ETH = { 
+                civilized = no
+                NOT = { has_country_modifier = western_influences }
             }
-            defender_goal = {
-                casus_belli = status_quo
+            OR = { 
+                has_country_flag = maibeli_conference_defender
+                has_country_flag = maibeli_defender
+                owns = 1851 
             }
-            call_ally = no
+            OR = {
+                    has_global_flag = maibeli_accepts_conference
+                    has_global_flag = maibeli_rejection_accepted
+            }
+            1857 = { controlled_by = REB }
+            NOT = { has_global_flag = treaty_of_tipsbyen }
+        }
+        
+        fire_only_once = yes
+
+        mean_time_to_happen = {
+            days = 30
         }
 
-        any_country = {
-            limit = {
-                has_country_flag = maibeli_conference_attended
+        immediate = {
+            ETH = { country_event = { id = 260231 days = 1} }
+        }
+
+        option = {
+            name = "EVT260230OPTA" # Intervention of the conference (every MC great power declares war on Maibeli)
+
+            war = {
+                target = ETH
+                attacker_goal = {
+                    casus_belli = make_puppet
+                }
+                defender_goal = {
+                    casus_belli = status_quo
+                }
+                call_ally = no
             }
+
+            any_country = {
+                limit = {
+                    has_country_flag = maibeli_conference_attended
+                }
+                war = {
+                    target = ETH
+                    attacker_goal = {
+                        casus_belli = make_puppet
+                    }
+                    defender_goal = {
+                        casus_belli = status_quo
+                    }
+                    call_ally = no
+                }
+                set_country_flag = exclusive_make_puppet_CB
+            }
+
+            set_global_flag = great_power_intervention_on_maibeli
+            
+            # any_country = { limit = { has_country_flag = maibeli_conference_attended } country_event = { id = 260232 days = 10 } }
+
+            ai_chance = {
+                factor = 
+                modifier = {
+                    factor = 
+                }
+            }
+        }
+
+        option = {
+            name = "EVT260230OPTB" # As the conference leader, we should be the only allowed for intervention (defender declares war on maibeli)
+            
             war = {
                 target = ETH
                 attacker_goal = {
@@ -1323,96 +1384,68 @@ country_event = { # Maibeli breaks something in the treaties (falls to rebels be
                 call_ally = no
             }
             set_country_flag = exclusive_make_puppet_CB
-        }
-
-        set_global_flag = great_power_intervention_on_maibeli
-        
-        # any_country = { limit = { has_country_flag = maibeli_conference_attended } country_event = { id = 260232 days = 10 } }
-
-        ai_chance = {
-            factor = 
-            modifier = {
+            set_global_flag = great_power_intervention_on_maibeli
+            ai_chance = {
                 factor = 
+                modifier = {
+                    factor =
+                }
             }
         }
-    }
-
-    option = {
-        name = "EVT260230OPTB" # As the conference leader, we should be the only allowed for intervention (defender declares war on maibeli)
         
-        war = {
-            target = ETH
-            attacker_goal = {
-                casus_belli = make_puppet
-            }
-            defender_goal = {
-                casus_belli = status_quo
-            }
-            call_ally = no
-        }
-        set_country_flag = exclusive_make_puppet_CB
-        set_global_flag = great_power_intervention_on_maibeli
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor =
-            }
-        }
     }
-    
-}
 
-country_event = { # Rebels take concessions
-    id = 260231
-    title = "EVTNAME260231"
-    desc = "EVTDESC260231"
-    
-    is_triggered_only = yes
-
-    option = {
-        name = "EVTOPTA260231"
+    country_event = { # Rebels take concessions
+        id = 260231
+        title = "EVTNAME260231"
+        desc = "EVTDESC260231"
         
-        all_core = {
-            limit = { NOT = { owned_by = ETH } }
-            secede_province = ETH
-        }
-        ai_chance = {
-            factor = 
-            modifier = {
+        is_triggered_only = yes
+
+        option = {
+            name = "EVTOPTA260231"
+            
+            all_core = {
+                limit = { NOT = { owned_by = ETH } }
+                secede_province = ETH
+            }
+            ai_chance = {
                 factor = 
+                modifier = {
+                    factor = 
+                }
             }
         }
+        
     }
-    
-}
 
-country_event = { # Return to Treaty of Typsbien
-    id = 260232
-    title = "EVTNAME260232"
-    desc = "EVTDESC260232"
-    
-    mean_time_to_happen = {
-        days = 0
-    }
-    trigger = {
-        has_global_flag = great_power_intervention_on_maibeli
-        ETH = {
-            vassal_of = THIS
+    country_event = { # Return to Treaty of Typsbien
+        id = 260232
+        title = "EVTNAME260232"
+        desc = "EVTDESC260232"
+        
+        mean_time_to_happen = {
+            days = 0
         }
-        NOT = { has_country_flag = maibeli_overlord }
-    }
-
-    option = {
-        name = "EVT260232OPTA" #See you in Typsbien!
-        any_country = { limit = { has_country_flag = maibeli_conference_defender } clr_country_flag = maibeli_conference_defender }
-        any_country = { limit = { has_country_flag = exclusive_make_puppet_CB } clr_country_flag = exclusive_make_puppet_CB }
-        set_country_flag = maibeli_conference_defender
-        set_country_flag = maibeli_overlord
-        ai_chance = {
-            factor = 
-            modifier = {
-                factor = 
+        trigger = {
+            has_global_flag = great_power_intervention_on_maibeli
+            ETH = {
+                vassal_of = THIS
             }
+            NOT = { has_country_flag = maibeli_overlord }
         }
-    }  
-}
+
+        option = {
+            name = "EVT260232OPTA" #See you in Typsbien!
+            any_country = { limit = { has_country_flag = maibeli_conference_defender } clr_country_flag = maibeli_conference_defender }
+            any_country = { limit = { has_country_flag = exclusive_make_puppet_CB } clr_country_flag = exclusive_make_puppet_CB }
+            set_country_flag = maibeli_conference_defender
+            set_country_flag = maibeli_overlord
+            ai_chance = {
+                factor = 
+                modifier = {
+                    factor = 
+                }
+            }
+        }  
+    }

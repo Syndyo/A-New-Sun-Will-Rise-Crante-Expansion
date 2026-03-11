@@ -2968,11 +2968,26 @@ conference_educational_mission = {
 
 ### El Liberado ###
 alfredo_fernandez = {
-    mobilisation_size = 0.1
+    mobilisation_size = 0.05
+    ruling_party_support = 0.5
     global_pop_militancy_modifier = -0.05
     plurality = -0.01
     tax_efficiency = 0.05
     administrative_efficiency = 0.10
-    factory_output = 0.05
     icon = 18
+}
+
+rouco_manifesto = {
+    ruling_party_support = 0.2
+}
+
+# Mexika Restoration
+the_three_generals = {
+    mobilization_size = 0.05
+}
+
+unam = {
+    education_efficiency_modifier = 1.5
+    literacy_con_impact = 0.1
+    research_points_modifier = 0.2
 }

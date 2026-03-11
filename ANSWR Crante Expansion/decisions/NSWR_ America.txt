@@ -823,11 +823,11 @@ transpacifica_unification = {
 			exists = yes
 			primary_culture = mexican
 			2142 = { empty = yes }
+			year = 2845
 			NOT = {has_country_flag = chihuahua_colonization}
 		}
 		allow = {
 			2141 = { owned_by = THIS }
-			year = 2845
 			prestige = 15
 		}
 		effect ={

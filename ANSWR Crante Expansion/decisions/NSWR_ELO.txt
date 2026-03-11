@@ -1,5 +1,6 @@
 political_decisions = {
 	the_liberation_northern = {
+		picture = MEX_rancho
 		potential = {
 			exists = yes
 			tag = ELO 
@@ -18,6 +19,7 @@ political_decisions = {
 	}
 	#Spread the liberation
 	the_liberation_central_america = {
+		picture = map_central_america
 		potential = {
 			exists = yes
 			tag = ELO 
@@ -35,7 +37,75 @@ political_decisions = {
 		}
 	}
 
+	############# 
+
+	the_restoration_generals = {
+	
+		potential = { 
+			exists = yes
+			tag = MEX
+			has_country_flag = the_restoration
+			NOT = { has_country_flag = restoration_generals }
+		}
+	
+		allow = {
+			is_independent = yes
+		}
+	
+		effect = {
+			define_general = {
+				name = "Javier Rodriguez Vasconcelos"
+				personality = relentless
+				background = cursed_luck
+			}
+			define_general = {
+				name = "Daniel Rulfo Fernandez"
+				personality = ballsy
+				background = womanizer
+			}
+			define_general = {
+				name = "Juan Azuela Leal"
+				personality = audacious
+				background = school_of_defense
+			}
+			military_staff_system = 1
+
+			add_country_modifier = { name = the_three_generals duration = 1025 }
+			leadership = 50
+			set_country_flag = restoration_generals
+		}
+	
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	# the_army_of_restoration= {
+	
+	# 	potential = { 
+	# 		exists = yes
+	# 		tag = MEX
+	# 		has_country_flag = the_restoration
+	# 		has_country_flag = restoration_generals
+	# 		NOT = { has_country_flag = restoration_army }
+	# 	}
+	
+	# 	allow = {
+	# 		is_independent = yes
+	# 	}
+	
+	# 	effect = {
+	# 		create_army = { type = artillery }
+	# 		set_country_flag = restoration_army
+	# 	}
+	
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+
 	the_liberation_andia_1 = {
+		picture = south_america
 		potential = {
 			exists = yes
 			owns = 1723
@@ -77,6 +147,7 @@ political_decisions = {
 	}
 
 	the_liberation_andia_2 = {
+		picture = south_america
 		potential = {
 			exists = yes
 			owns = 1723
@@ -113,6 +184,7 @@ political_decisions = {
 	}
 
 	the_liberation_andia_3 = {
+		picture = south_america
 		potential = {
 			exists = yes
 			owns = 1723
@@ -140,6 +212,7 @@ political_decisions = {
 	}
 
 	establish_great_republic_1 = {
+		picture = form_rpl
 		potential = {
 			exists = yes
 			tag = ELO
@@ -177,10 +250,12 @@ political_decisions = {
 			add_accepted_culture = quechua
 			add_accepted_culture = pacinian
 			prestige = 50
+			set_global_flag = the_great_republic
 		}
 	}
 
 	establish_great_republic_2 = {
+		picture = form_rpl
 		potential = {
 			exists = yes
 			tag = ELO
@@ -211,12 +286,15 @@ political_decisions = {
 			inherit = QKD
 			add_accepted_culture = central_american
 			add_accepted_culture = muisca
+			add_accepted_culture = quechua
 			add_accepted_culture = pacinian
 			prestige = 50
+			set_global_flag = the_great_republic
 		}
 	}
 
 	establish_great_republic_3 = {
+		picture = form_rpl
 		potential = {
 			exists = yes
 			tag = ELO
@@ -237,8 +315,60 @@ political_decisions = {
 			inherit = CLM
 			add_accepted_culture = central_american
 			add_accepted_culture = muisca
+			add_accepted_culture = quechua
 			add_accepted_culture = pacinian
 			prestige = 50
+			set_global_flag = the_great_republic
+		}
+	}
+
+# Decisions for RPL
+	the_final_abdication = {
+		picture = CAL_greater_california
+		potential = {
+			exists = yes
+			tag = GCO
+			TRP = { OR = { government = absolute_monarchy government = prussian_constitutionalism government = hms_government } }
+			year = 2910
+			NOT = { has_country_flag = transpacifican_menace }
+			has_global_flag = the_great_republic
+		}
+
+		allow = {
+			is_greater_power = yes
+		}
+
+		effect = {
+			casus_belli = {
+				target = TRP
+				type = install_republic
+				months = 36
+			}
+			casus_belli = {
+				target = TRP
+				type = acquire_state
+				months = 36
+			}
+			set_country_flag = transpacifican_menace
+		}
+	}
+
+	the_unam_revival = {
+		picture = unam
+		potential = {
+			exists = yes
+			tag = ELO
+			has_country_flag = the_liberation_central_america
+			NOT = { has_country_flag = unam_revival }
+		}
+		allow = {
+			positivism = 1
+			money = 100000
+		}
+		effect = {
+			add_country_modifier = { name = unam duration = -1 }
+			prestige = 10
+			set_country_flag = unam_revival
 		}
 	}
 

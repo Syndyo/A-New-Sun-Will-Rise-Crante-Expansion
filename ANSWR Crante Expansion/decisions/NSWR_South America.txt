@@ -6,6 +6,7 @@ muisca_form = {
 				NOT = { has_global_flag = muiscan_formed }
 			}
 		allow = {
+			OR = { GAR = { exists = no } CRR = { exists = no } }
 			CLM_2251 = { owned_by = THIS }
 			CLM_2247 = { owned_by = THIS }
 			CLM_2259 = { owned_by = THIS }
@@ -49,7 +50,7 @@ muisca_form = {
 			ECU_2279 = { owned_by = THIS }
 		}
 		effect = {
-			PEU_2289 = { secede_province = THIS add_core = THIS add_core = CSK }
+			PEU_2289 = { secede_province = THIS add_core = THIS add_core = CSK add_core = GAR add_core = CRR }
 			set_country_flag = pastaza_qkd
 		}
 	}
@@ -113,7 +114,24 @@ muisca_form = {
 			set_country_flag = andia_formation
 		}
 	}
+	#Buliwyan Ancestral Lands
+	buliwyan_ancestral_lands = {
+		potential = {
+			exists = yes
+			tag = BWK
+			civilized = yes
+			NOT = { has_country_flag = bwk_ancestral }
+		}
 
+		allow = {
+			BWK = { all_core = { owned_by = THIS } }
+			prestige = 10
+		}
+		effect = {
+			BOL_2321 = { add_core = THIS }
+			BOL_2317 = { add_core = THIS }
+		}
+	}
 	#States of the South
 	state_of_the_south = {
 		picture = south_america

@@ -19,11 +19,15 @@ army = {
     name = "El Liberado"
     location = 2177
     regiment = {
-        name= "1.Division"
+        name= "1. Division"
         type = infantry
         home = 2177
     }
-
+    regiment = {
+        name = "2. Division"
+        type = infantry
+        home = 2179
+    }
     regiment = {
         name= "1. Cavalry"
         type = cavalry

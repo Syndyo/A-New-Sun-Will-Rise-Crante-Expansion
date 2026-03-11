@@ -3,8 +3,9 @@ country_event = {
     id = 260300
     title = "EVTNAME260300"
     desc = "EVTDESC260300"
-    picture = Picture
-    
+    picture = crisis_revolution_enabled
+    major = yes
+
     mean_time_to_happen = {
         days = 1
     }
@@ -35,6 +36,7 @@ country_event = {
             relation = { who = THIS value = -150 }
         } 
         add_country_modifier = { name = alfredo_fernandez duration = -1 }
+        add_country_modifier = { name = rouco_manifesto duration = -1 }
         set_global_flag = el_liberado_won 
     }
 }
@@ -48,6 +50,7 @@ country_event = {
     picture = Picture
     
     trigger = {
+        war = no
         tag = ELO
         year = 2842
         government = bourgeois_dictatorship
@@ -61,13 +64,162 @@ country_event = {
 
     option = {
         name = "EVT260301OPTA"
+        kill_leader = 24
+        remove_country_modifier = alfredo_fernandez
         government = democracy
         political_reform = universal_voting
         add_country_modifier = { name = law_changed_by_force duration = 1095 }
-        remove_country_modifier = alfredo_fernandez
         consciousness = 3
         set_country_flag = alfredo_fernandez_death
         clr_country_flag = government_busy_with_something
+    }
+}
+
+country_event = { #Restorationists rebels takes the north
+    id = 260302
+    title = "EVTNAME260302"
+    desc = "EVTDESC260302"
+    picture = mexico_soldiers
+    
+    trigger = {
+        tag = ELO
+        has_country_flag = the_liberation_central_america
+        OR = {
+            NOT = { government = democracy }
+            has_recently_lost_war = yes
+            2172 = { controlled_by = REB }
+        }
+        militancy = 7
+    }
+    
+    mean_time_to_happen = {
+        months = 1
+    }
+
+    fire_only_once = yes
+
+    option = {
+        name = "EVT260302OPTA"
+        any_owned = {
+            limit = {
+                OR = {
+                    is_core = RGR
+                    is_core = RDM
+                    is_core = HDR
+                    is_core = DAU
+                }
+            }
+            add_core = MEX
+        }
+        MEX_2172 = { add_core = MEX }
+        MEX_2142 = { add_core = MEX }
+        MEX = {
+            government = democracy
+            ruling_party = "MEX_restorationist"
+            political_reform = universal_voting
+            all_core = { secede_province = MEX }
+            set_country_flag = the_restoration
+        }
+    }   
+}
+
+country_event = { # The Restoration War
+    id = 260303
+    title = "EVTNAME260303"
+    desc = "EVTDESC260303"
+    
+    is_triggered_only = yes
+    major = yes
+
+    #fire_only_once = yes
+
+    option = {
+        name = "EVT260303OPTA"
+        government = democracy
+        capital = 2167
+        ELO = { all_core = { add_core = MEX } }
+        war = {
+            target = ELO
+            attacker_goal = {
+                casus_belli = annex_core_country
+            }
+            defender_goal = {
+                casus_belli = annex_core_country
+            }
+            call_ally = no
+        }
+        set_country_flag = restoration_war
+        ELO = { set_country_flag = restoration_war }
+    } 
+}
+
+country_event = {
+    id = 2603040
+    title = "EVTNAME260304"
+    desc = "EVTDESC260304"
+    picture = failed_revolution
+
+    mean_time_to_happen = {
+        days = 1
+    }
+
+    trigger = {
+        tag = ELO
+        has_country_flag = restoration_war
+        war = no
+        2167 = { owned_by = THIS }
+        2177 = { owned_by = THIS }
+        OR = {
+            AND = {
+                ELO = { exists = no }
+                MEX = { exists = yes }
+            }
+            AND = {
+                ELO = { exists = yes }
+                MEX = { exists = no }
+            }
+        }
+    }
+
+    option = {
+        name = "EVT260304OPTA"
+        all_core = { remove_core = HDR remove_core = DAU remove_core = RDM remove_core = MEX }
+        prestige = 15
+    }
+}
+
+country_event = {
+    id = 2603041
+    title = "EVTNAME260304"
+    desc = "EVTDESC260304"
+    picture = MEX_revolution
+
+    mean_time_to_happen = {
+        days = 1
+    }
+
+    trigger = {
+        tag = MEX
+        has_country_flag = restoration_war
+        war = no
+        2167 = { owned_by = THIS }
+        2177 = { owned_by = THIS }
+        OR = {
+            AND = {
+                ELO = { exists = no }
+                MEX = { exists = yes }
+            }
+            AND = {
+                ELO = { exists = yes }
+                MEX = { exists = no }
+            }
+        }
+    }
+
+    option = {
+        name = "EVT260304OPTA"
+        all_core = { remove_core = HDR remove_core = DAU remove_core = RDM remove_core = ELO }
+        prestige = 15
     }
 }
 
@@ -130,7 +282,7 @@ country_event = {
     id = 260311
     title = "EVTNAME260311"
     desc = "EVTDESC260311"
-    picture = Picture
+    picture = ccastro
     
     is_triggered_only = yes
     
@@ -145,7 +297,7 @@ country_event = {
     id = 260312
     title = "EVTNAME260312"
     desc = "EVTDESC260312"
-    picture = Picture
+    picture = guerra_grande
     
     is_triggered_only = yes
     
@@ -170,7 +322,7 @@ country_event = {
     id = 260313
     title = "EVTNAME260313"
     desc = "EVTDESC260313"
-    picture = Picture
+    picture = treaty_of_velasco
     
     is_triggered_only = yes
     
@@ -193,3 +345,65 @@ country_event = {
 }
 
 ###########
+
+# Events for RPL
+
+country_event = { # A call from texas
+    id = 260314
+    title = "EVTNAME260314"
+    desc = "EVTDESC260314"
+    picture = mexico_soldiers
+    
+    trigger = {
+        tag = GCO
+        is_greater_power = yes
+        TEX = { in_sphere = THIS }
+        PAW = { NOT = { government = democracy } }
+        130 = { owned_by = PAW }
+        NOT = { has_country_flag = texan_call }
+    }
+    
+    mean_time_to_happen = {
+        months = 36
+    }
+
+    fire_only_once = yes
+
+    immediate = {
+        set_country_flag = texan_call
+    }
+    option = {
+        name = "EVT260314OPTA"
+        casus_belli = {
+            target = PAW
+            type = install_democracy_make_puppet
+            months = 36
+		}
+        casus_belli = {
+            target = PAW
+            type = liberate_country
+            months = 36
+        }
+        badboy = 10
+        relation = { who = TEX value = 100 }
+        ai_chance = {
+            factor = 
+            modifier = {
+                factor = 
+            }
+        }
+    }
+    
+    option = {
+        name = "EVT260314OPTB"
+        relation = { who = TEX value = -50 }
+        diplomatic_influence = { who = TEX value = -50 }
+        prestige = -5
+        ai_chance = {
+            factor = 
+            modifier = {
+                factor = 
+            }
+        }
+    }
+}
