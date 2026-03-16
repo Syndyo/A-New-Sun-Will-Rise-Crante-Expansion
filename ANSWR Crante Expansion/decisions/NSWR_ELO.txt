@@ -339,9 +339,10 @@ political_decisions = {
 		}
 
 		effect = {
+			badboy = 10
 			casus_belli = {
 				target = TRP
-				type = install_republic
+				type = install_democracy
 				months = 36
 			}
 			casus_belli = {
@@ -363,10 +364,11 @@ political_decisions = {
 		}
 		allow = {
 			positivism = 1
-			money = 100000
+			money = 70000
 		}
 		effect = {
 			add_country_modifier = { name = unam duration = -1 }
+			treasure = -70000
 			prestige = 10
 			set_country_flag = unam_revival
 		}

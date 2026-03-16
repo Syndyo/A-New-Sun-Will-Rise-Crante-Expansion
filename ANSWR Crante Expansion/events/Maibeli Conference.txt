@@ -9,6 +9,7 @@
         id = 260200
         title = "EVTNAME260200"
         desc = "EVTDESC260200"
+        picture = treaty
 
         mean_time_to_happen = {
             months = 3
@@ -19,10 +20,10 @@
         }
 
         trigger = {
-            year = 2875
             ETH = { NOT = { civilized = yes } }
             has_global_flag = berlin_conference
             NOT = { capital_scope = { continent = africa } }
+            NOT = { capital_scope = { continent = north_america } }
             OR = {
                 is_greater_power = yes
                 AND = { 
@@ -36,6 +37,8 @@
                 is_greater_power = yes
                 war = no
             }
+            NOT = { has_country_flag = maibeli_conference_attended }
+            num_of_ports = 1
         }
 
         immediate = {
@@ -60,6 +63,7 @@
         id = 260201
         title = "EVTNAME260201"
         desc = "EVTDESC260201"
+        picture = partition_of_africa
 
         mean_time_to_happen = {
             months = 3
@@ -76,7 +80,6 @@
 
         option = {
             name = "EVT260201OPTA" # We accept all terms of the conference
-            any_state = { is_slave = no }
             prestige = 20
             any_country = {
                 limit = { has_country_flag = maibeli_conference_attended  }
@@ -97,6 +100,7 @@
                     has_country_modifier = western_influences
                 }
             }
+            any_state = { is_slave = no }
         }
 
         option = {
@@ -104,6 +108,12 @@
             any_country = {
                 limit = { has_country_flag = maibeli_conference_attended  }
                 relation = { who = THIS value = -30 }
+            }
+            any_country = {
+                limit = {
+                    alliance_with = THIS
+                }
+                end_alliance = THIS
             }
             set_global_flag = maibeli_rejects_conference
 
@@ -135,6 +145,7 @@
         id = 260202
         title = "EVTNAME260202"
         desc = "EVTDESC260202"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -167,6 +178,7 @@
         id = 260203
         title = "EVTNAME260203"
         desc = "EVTDESC260203"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -200,6 +212,7 @@
         id = 260204
         title = "EVTNAME260204"
         desc = "EVTDESC260204"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -234,6 +247,7 @@
         id = 260205
         title = "EVTNAME260205"
         desc = "EVTDESC260205"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -269,6 +283,7 @@
         id = 260206
         title = "EVTNAME260206"
         desc = "EVTDESC260206"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -305,6 +320,7 @@
         id = 260207
         title = "EVTNAME260207"
         desc = "EVTDESC260207"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -342,6 +358,7 @@
         id = 260208
         title = "EVTNAME260208"
         desc = "EVTDESC260208"
+        picture = genevaconvention
 
         mean_time_to_happen = {
             days = 15
@@ -370,6 +387,9 @@
                 }
                 call_ally = no
             }
+            1177 = { change_controller = THIS }
+            1851 = { change_controller = REB }
+
             set_global_flag = maibeli_rejection_war
             set_country_flag = maibeli_conference_defender
             set_country_flag = exclusive_make_puppet_CB
@@ -444,27 +464,30 @@
         major = yes
 
         mean_time_to_happen = {
-            months = 48
+            months = 3
         }
 
         trigger = {
             tag = ETH
             has_global_flag = maibeli_rejection_war
             is_at_war = yes
-            1857 = { controlled_by = THIS }
-            1859 = { controlled_by = THIS }
-            1872 = { controlled_by = THIS }
+            1851 = { controlled_by = THIS province_control_days = 730 }
+            1859 = { controlled_by = THIS province_control_days = 730 }
+            1872 = { controlled_by = THIS province_control_days = 730 }
+            NOT = { has_global_flag = treaty_of_maibeli }
         }
 
         option = {
-            name = "EVTOPTA260210"
-            prestige = 70
+            name = "EVT260210OPTA"
+            prestige = 50
             any_country = {
                 limit = { has_country_flag = maibeli_conference_attended  }
+                end_war = ETH
+                prestige = -15
                 relation = { who = THIS value = -50 }
             }
             set_global_flag = treaty_of_maibeli
-            research_points = 7000 
+            research_points = 10000
         }
     }
 
@@ -474,6 +497,7 @@
         id = 260211
         title = "EVTNAME260211"
         desc = "EVTDESC260211"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 1
@@ -523,6 +547,7 @@
         id = 260212
         title = "EVTNAME260212"
         desc = "EVTDESC260212"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 1
@@ -574,6 +599,7 @@
         id = 260213
         title = "EVTNAME260213"
         desc = "EVTDESC260213"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 1
@@ -614,6 +640,7 @@
         id = 260214
         title = "EVTNAME260214"
         desc = "EVTDESC260214"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 1
@@ -655,6 +682,7 @@
         id = 260215
         title = "EVTNAME260215"
         desc = "EVTDESC260215"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 1
@@ -696,6 +724,7 @@
         id = 260216
         title = "EVTNAME260216"
         desc = "EVTDESC260216"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 1
@@ -747,6 +776,7 @@
         id = 260217
         title = "EVTNAME260217"
         desc = "EVTDESC260217"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -776,9 +806,10 @@
     }
 
     country_event = { # Treaty of Tipsbyen - Defender gets Maibeli colonies 
-        id = 2602180
-        title = "EVTNAME2602180"
-        desc = "EVTDESC2602180"
+        id = 2602170
+        title = "EVTNAME2602170"
+        desc = "EVTDESC2602170"
+        picture = expansion
 
         mean_time_to_happen = {
             days = 0
@@ -812,6 +843,7 @@
         id = 260218
         title = "EVTNAME260218"
         desc = "EVTDESC260218"
+        picture = outside_influences
         
         trigger = {
             has_global_flag = maibeli_rejection_accepted
@@ -883,6 +915,7 @@
         id = 260219
         title = "EVTNAME260219"
         desc = "EVTDESC260219"
+        picture = outside_influences
         
         is_triggered_only = yes
 
@@ -898,6 +931,7 @@
         id = 260220
         title = "EVTNAME260220"
         desc = "EVTDESC260220"
+        picture = outside_influences
         
         is_triggered_only = yes
 
@@ -914,7 +948,7 @@
             id = 2602210
             title = "EVTNAME260221"
             desc = "EVTDESC260221"
-            picture = Picture
+            picture = treaty
             
             mean_time_to_happen = {
                 days = 5
@@ -985,7 +1019,7 @@
             id = 2602211
             title = "EVTNAME260221"
             desc = "EVTDESC260221"
-            picture = Picture
+            picture = treaty
             
             mean_time_to_happen = {
                 days = 5
@@ -1059,6 +1093,7 @@
             id = 2602220
             title = "EVTNAME2602220"
             desc = "EVTDESC2602220"
+            picture = artillery
             
             is_triggered_only = yes
 
@@ -1107,6 +1142,7 @@
             id = 2602221
             title = "EVTNAME2602221"
             desc = "EVTDESC2602221"
+            picture = artillery
             
             is_triggered_only = yes
 
@@ -1153,6 +1189,7 @@
             id = 260223
             title = "EVTNAME260223"
             desc = "EVTDESC260223"
+            picture = artillery
             mean_time_to_happen = {
                 days = 5
             }
@@ -1224,6 +1261,7 @@
             id = 260224
             title = "EVTNAME260224"
             desc = "EVTDESC260224"
+            picture = expansion
             
             trigger = {
                 has_country_flag = maibeli_conference_defender
@@ -1237,13 +1275,7 @@
 
             option = {
                 name = "EVTOPTA260224"
-                country_event = { id = 260225 days = 0 }
-                ai_chance = {
-                    factor = 
-                    modifier = {
-                        factor = 
-                    }
-                }
+                any_country = { limit = { { has_country_flag = maibeli_conference_usurper } } country_event = { id = 260225 days = 0 } } 
             }   
         }
 
@@ -1251,6 +1283,7 @@
             id = 260225
             title = "EVTNAME260225"
             desc = "EVTDESC260225"
+            picture = expansion
             
             is_triggered_only = yes
 
@@ -1267,7 +1300,7 @@ country_event = { # Maibeli conference member didnt receive concessions
     id = 260226
     title = "EVTNAME260226"
     desc = "EVTDESC260226"
-    picture = Picture
+    picture = hermitage
     
     trigger = {
         has_country_flag = maibeli_conference_attended
@@ -1297,6 +1330,7 @@ country_event = { # Maibeli conference member didnt receive concessions
         id = 260230
         title = "EVTNAME260230"
         desc = "EVTDESC260230"
+        picture = riot
         
         trigger = {
             NOT = { tag = ETH }
@@ -1399,6 +1433,7 @@ country_event = { # Maibeli conference member didnt receive concessions
         id = 260231
         title = "EVTNAME260231"
         desc = "EVTDESC260231"
+        picture = angry_natives
         
         is_triggered_only = yes
 
@@ -1423,6 +1458,7 @@ country_event = { # Maibeli conference member didnt receive concessions
         id = 260232
         title = "EVTNAME260232"
         desc = "EVTDESC260232"
+        picture = genevaconvention
         
         mean_time_to_happen = {
             days = 0

@@ -18,7 +18,7 @@ EVTNAME59000;The Delta War;;;;;;;;;;;;;
 EVTDESC59000;In $YEAR$, a dozen of Greco-Coptic farmers crossed the border, claiming the land as theirs' and raiding some Misri villages. As the Greco-Coptic government refused to give explanations and allow investigation, war was seemingly inevitable.;;;;;;;;;;;;;x
 EVT59000OPTA;Those cowards will learn when one should talk or be silent.;;;;;;;;;;;;;
 EVTNAME357689;Ozpox;;;;;;;;;;;;;
-EVTDESC357689;The sacred ruins of Koltsovo had been untouched by humans since the times of the Storm. Old sayings affirmed that those who disrupt its calm will awaken a curse upon all mankind. In $YEAR$ a group of scientists foolishly enter the place, and PUPPETd a plague which will be know until the next century as "Ozpox".;;;;;;;;;;;;;x
+EVTDESC357689;The sacred ruins of Koltsovo had been untouched by humans since the times of the Storm. Old sayings affirmed that those who disrupt its calm will awaken a curse upon all mankind. In $YEAR$ a group of scientists foolishly enter the place, and PUPPETd a plague which will be know until the next century as "Ozpox".;;;;;;;;;;;;;
 EVT357689OPTA;A doom for all humanity.;;;;;;;;;;;;;
 EVTNAME357690;Ozpox Spreads!;;;;;;;;;;;;;
 EVTDESC357690;Authorities have confirmed the presence of Ozpox in $PROVINCENAME$, with dozens already infected. While emergency measures are being enacted, the means by which the disease spreads are still unknown.;;;;;;;;;;;;;
@@ -72,7 +72,7 @@ EVT260202OPTA;We are glad to receive this concession.;;;;;;;;;;;;;
 EVTNAME260203;Ma'ibeli Conference: Concession of Massawa;;;;;;;;;;;;;
 EVTDESC260203;The port of Massawa, located in the province of Eritrea, is the second most important port of the Ma'ibeli Empire along the Red Sea coast. As part of the arrangements discussed during the Ma'ibeli Conference, the concession of this port is now to be granted to us.;;;;;;;;;;;;;
 EVTNAME260204;Ma'ibeli Conference: Concession of Berbera;;;;;;;;;;;;;
-EVTDESC260204;The province of Berbera, located near the Gulf of Aden, is considered the leading fishing city of the Ma'ibeli Empire. Under the agreements reached at the Ma'ibeli Conference, the concession of Berbera will be transferred to our control.
+EVTDESC260204;The province of Berbera, located near the Gulf of Aden, is considered the leading fishing city of the Ma'ibeli Empire. Under the agreements reached at the Ma'ibeli Conference, the concession of Berbera will be transferred to our control.;;;;;;;;;;;;;
 EVTNAME260205;Ma'ibeli Conference: Concession of Bosaso;;;;;;;;;;;;;
 EVTDESC260205;The province of Bosaso, being the farthest port in continental Ma'ibeli, having a considerable ammount of population, is relevant for trade and commerce in the east provinces of Ma'ibeli. During the Ma'ibeli Conferences this province has been granted to us.;;;;;;;;;;;;;
 EVTNAME260206;Ma'ibeli Conference: Concession of Socotra;;;;;;;;;;;;;
@@ -87,7 +87,7 @@ EVTNAME260209;Treaty of Typsbien;;;;;;;;;;;;;
 EVTDESC260209;As the intervention in the Ma'ibeli Empire has been successful, the Treaty of Typsbien has been signed between the Ma'ibeli Empire and the powers involved in the conference. This treaty ensures the implementation of the terms agreed upon during the Ma'ibeli Conference, as well as the division of the Ma'ibeli Empire into several zones of influence.;;;;;;;;;;;;;
 EVT260209OPTA;This treaty is a great achievement for our nation.;;;;;;;;;;;;;
 EVTNAME260210;Treaty of Ma'ibeli City;;;;;;;;;;;;;
-EVTDESC260210;The foreigners have not been able to achieve their military goals in our lands, and the Ma'ibeli Empire has been able to maintain its sovereignty. As a result, the Treaty of Ma'ibeli City has been signed between the Ma'ibeli Empire and the powers involved in the conference. This treaty ensures the respect of the sovereignty of the Ma'ibeli Empire. Their failure has given us access to a new world of technologies which will boost our development efforts.;;;;;;;;;;;;;
+EVTDESC260210;The foreigners have not been able to achieve their military goals in our lands, and the Ma'ibeli Empire has been able to maintain its sovereignty. As a result, the Treaty of Ma'ibeli City has been signed between the Ma'ibeli Empire and the powers involved in the conference. This treaty ensures the respect of the independence of the Ma'ibeli Empire. Their failure has given us access to a new world of technologies which will boost our development efforts.;;;;;;;;;;;;;
 EVT260210OPTA;For the Empire, for Ma'ibeli!;;;;;;;;;;;;;
 EVTNAME260211;Concession of Eritrea;;;;;;;;;;;;;
 EVTDESC260211;As part of the Treaty of Typsbien, has been decided that the province of Eritrea will be conceded to us.;;;;;;;;;;;;;
@@ -103,6 +103,8 @@ EVTNAME260216;Annexation of the Ma'ibeli Empire;;;;;;;;;;;;;
 EVTDESC260216;As part of the Treaty of Typsbien, and as the leader of the Ma'ibeli Conference, we are the indicated power to control the Ma'ibeli Empire main provinces.;;;;;;;;;;;;;
 EVTNAME260217;Concession of Sudan;;;;;;;;;;;;;
 EVTDESC260217;As part of the Treaty of Typsbien, and for being the owners of Eritrea, has been decided that the provinces of Sudan will be conceded to us.;;;;;;;;;;;;;
+EVTNAME2602170;Concession of Ma'ibeli colonies;;;;;;;;;;;;;
+EVTDESC2602170;As part of the Treaty of Typsbien, and as the leader of the Ma'ibeli Conference, the Ma'ibeli colonies has been conceded to us.
 EVTNAME260218;Conciliation with the Ma'ibeli Empire;;;;;;;;;;;;;
 EVTDESC260218;Negotiations with the Ma'ibeli Empire have been successful, and we have reached an agreement that allows us to maintain a positive relationship with them while also ensuring our interests in the region. Now in the discussion of the share of influence with the other powers, we have the opportunity to secure a favorable position for ourselves (buying colonies and territory), or share the influence between all the parts involved.;;;;;;;;;;;;;
 EVT260218OPTA;We are the right ones to lead the reformation of the Ma'ibeli Empire;;;;;;;;;;;;;
@@ -209,14 +211,16 @@ ozpox_cure_prestige_desc;Our country has discovered the first vaccine against th
 quarantine_active;National Quarantine;;;;;;;;;;;;;
 quarantine_active_desc;A disease is threatening the national health and we have enacted a quarantine.
 maibeli_conference_attended;Ma'ibeli Conference Participant;;;;;;;;;;;;;
+conference_educational_mission;Conference Educational Mission;;;;;;;;;;;;;
+conference_educational_mission_desc;The Ma'ibeli Conference has beginning an educational mission across the Empire.;;;;;;;;;;;;;
 alfredo_fernandez;Alfredo Fernandez Rouco;;;;;;;;;;;;;
 alfredo_fernandez_desc;Alfredo Fernandez Rouco is the leader of El Liberado, the first president of the nation.;;;;;;;;;;;;;
 the_three_generals;The Three Generals;;;;;;;;;;;;;
 EVTNAME300000;Clover Infection;;;;;;;;;;;;;
-EVTDESC300000;In the 28th and 29th century, an estimated ten million people died from the Clover Infection, a disease characterized by the spontaneous onset of nausea, vomiting, fever, hair loss, and eventual death within a matter of weeks. The illness was reportedly caused by contact with objects bearing a clover symbol. By the way, haven't you seen this brilliant dust?;;;;;;;;;;;;;
+EVTDESC300000;In the 28th and 29th century, an estimated ten million people died from the Clover Infection, a disease characterized by the spontaneous onset of nausea, vomiting, fever, hair loss, and eventual death within a matter of weeks. The illness was reportedly caused primarily by contact with objects bearing a clover symbol. By the way, haven't you seen this brilliant dust?;;;;;;;;;;;;;
 EVT300000OPTA;Bury that thing immediatly...;;;;;;;;;;;;;
 EVTNAME54004;History of Mexica;;;;;;;;;;;;;
-EVTDESC54004;For nearly two centuries, the lands of Mexica have been engulfed in chaos since the fall of the central monarchy. In 2791, Jose Alvarez was elected President of Mexica, bringing stability to the region. A final constitution was ratified in 2819, consolidating his reforms. However, in 2835, after his eleventh reelection as president, a radical faction known as El Liberado seized control of the southern provinces, plunging the country into civil war.;;;;;;;;;;;;;
+EVTDESC54004;For nearly two centuries, the lands of Mexica have been engulfed in chaos since the fall of the central monarchy. In 2791, Jose Alvarez was elected President of Mexica, bringing stability to the region. A final constitution was ratified in 2819, consolidating his reforms. However, in 2835, after his 11th reelection as president, a radical faction known as El Liberado seized control of the southern provinces, plunging the country into civil war.;;;;;;;;;;;;;
 EVT54004 OPTA;Interesting.;;;;;;;;;;;;;
 EVTNAME54005;History of El Liberado;;;;;;;;;;;;;
 EVTDESC54005;For nearly two centuries, the lands of Mexica have been engulfed in chaos since the fall of the central monarchy. In 2835, the President of Mexica, Jose Alvarez, was elected by popular vote by a margin of nearly 90 points, in comparison to his opposition. This election marked his 11th four year term, as president, in line with the constitution, written by Alvarez in 2819. This was despite the cruel reign over the people of Mexica, and a detrimental foreign policy isolating its lands. While there were those of the upper class that benefited from his rule, his reign had long sickened the radical Liberado faction to the south. By 2835, they had fully taken the south from Alvarez's control, and engulfed the state into a full blown civil war. ¡Viva El Liberado!;;;;;;;;;;;;;
@@ -225,4 +229,8 @@ MEX_restorationist;Restauracion Nacional;;;;;;;;;;;;;
 the_unam_revival_title;Revive the Universidad Autonoma;;;;;;;;;;;;;
 the_unam_revival_desc;The Universidad Autonoma de Mexico were once the greatest university in our nation. Ciudad Universitaria, its principal campus, was previously used by the Alvarez regime as their main quarter and now is abandoned. Our duty is retake the campus and make efforts to revive the international prestige of the UNAM.;;;;;;;;;;;;;
 unam;Universidad Autonoma de Mexico;;;;;;;;;;;;;
+unam_desc;The Universidad Autonoma de Mexico, first established in prestormic times, has been revitalized by our government.
 rouco_manifesto;The Rouco Manifesto;;;;;;;;;;;;;
+rouco_manifesto_desc;Alfredo Fernandez Rouco declared our final goal: Free the continent of monarchies and dictatorships.
+buliwyan_ancestral_lands_title;Buliwyan Ancestral Lands;;;;;;;;;;;;;
+buliwyan_ancestral_lands_desc;The city of Santa Cruz, renamed by the Plistians as Orijia, has been unjustly occupied for two centuries and leaded to oblivion. We must reclaim it as well as the other eastern lands, soil of our ancestors.;;;;;;;;;;;;;

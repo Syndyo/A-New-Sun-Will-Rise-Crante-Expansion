@@ -29,6 +29,7 @@ political_decisions = {
 	}
 
 	ozpox_close_the_borders = { #Close the borders
+		picture = golden_law
 		potential = {
 			civilized = yes
 			has_global_flag = ozpox_pandemic
@@ -56,6 +57,7 @@ political_decisions = {
 		effect = {
 			political_reform = closed_borders
 			set_country_flag = ozpox_preventive_close
+			set_country_flag = government_busy_with_something
 			add_country_modifier = {
 				name = ozpox_border_closure
 				duration = -1
@@ -103,6 +105,7 @@ political_decisions = {
 	}
 
 	ozpox_preventive_quarantine = { #Preventive quarantine
+		picture = golden_law
 		potential = {
 			has_global_flag = ozpox_pandemic
 			has_country_flag = ozpox_outbreak
@@ -119,6 +122,7 @@ political_decisions = {
 		}
 		effect = {
 			set_country_flag = ozpox_quarantine
+			set_country_flag = government_busy_with_something
 			add_country_modifier = {
 				name = quarantine_active
 				duration = -1

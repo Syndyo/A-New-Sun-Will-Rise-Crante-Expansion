@@ -81,6 +81,7 @@ muisca_form = {
 			OR = { 
 				tag = QKD
 				tag = CSK
+				tag = BWK
 			}
 			civilized = yes
 			state_n_government = 1

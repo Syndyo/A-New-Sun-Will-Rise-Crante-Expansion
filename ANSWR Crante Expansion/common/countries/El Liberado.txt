@@ -18,7 +18,7 @@ party = {
 
 party = {
     name = "ELO_conservative"
-    start_date = 2830.1.1
+    start_date = 2842.1.1
     end_date = 3000.1.1
 
     ideology = conservative
@@ -33,7 +33,7 @@ party = {
 
 party = {
     name = "ELO_anarcho_liberal"
-    start_date = 2820.1.1
+    start_date = 2842.1.1
     end_date = 2936.1.1
 
     ideology = anarcho_liberal
@@ -48,7 +48,7 @@ party = {
 
 party = {
     name = "ELO_reactionary"
-    start_date = 2820.1.1
+    start_date = 2842.1.1
     end_date = 3000.1.1
 
     ideology = reactionary

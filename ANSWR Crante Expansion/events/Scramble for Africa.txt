@@ -654,98 +654,98 @@ country_event = {
 #     }
 # }
 
-country_event = {
-    id = 95510
-    title = "EVTNAME95510" #Rebellion in Eritrea
-    desc = "EVTDESC95510"
-    picture = "rebellion"
+# country_event = {
+#     id = 95510
+#     title = "EVTNAME95510" #Rebellion in Eritrea
+#     desc = "EVTDESC95510"
+#     picture = "rebellion"
 
-    fire_only_once = yes
+#     fire_only_once = yes
 
-    trigger = {
-        tag = EGY
-        civilized = no
-        OR = {
-            war = no
-            war_with = SUD
-        }
-        ETH = {
-            exists = yes
-            any_owned_province = {
-                any_neighbor_province = { region = ENG_1848 }
-            }
-        }
-        OR = {
-            owns = 1848
-            owns = 1849
-            owns = 1850
-            owns = 1851
-        }
-        1833 = {
-            OR = {
-                NOT = { owned_by = THIS }
-                average_militancy = 4
-                AND = {
-                    controlled_by = REB
-                    province_control_days = 60
-                }
-            }
-        }
-        1836 = {
-            OR = {
-                NOT = { owned_by = THIS }
-                average_militancy = 4
-                AND = {
-                    controlled_by = REB
-                    province_control_days = 60
-                }
-            }
-        }
-        1829 = {
-            OR = {
-                NOT = { owned_by = THIS }
-                average_militancy = 4
-                AND = {
-                    controlled_by = REB
-                    province_control_days = 60
-                }
-            }
-        }
-    }
+#     trigger = {
+#         tag = EGY
+#         civilized = no
+#         OR = {
+#             war = no
+#             war_with = SUD
+#         }
+#         ETH = {
+#             exists = yes
+#             any_owned_province = {
+#                 any_neighbor_province = { region = ENG_1848 }
+#             }
+#         }
+#         OR = {
+#             owns = 1848
+#             owns = 1849
+#             owns = 1850
+#             owns = 1851
+#         }
+#         1833 = {
+#             OR = {
+#                 NOT = { owned_by = THIS }
+#                 average_militancy = 4
+#                 AND = {
+#                     controlled_by = REB
+#                     province_control_days = 60
+#                 }
+#             }
+#         }
+#         1836 = {
+#             OR = {
+#                 NOT = { owned_by = THIS }
+#                 average_militancy = 4
+#                 AND = {
+#                     controlled_by = REB
+#                     province_control_days = 60
+#                 }
+#             }
+#         }
+#         1829 = {
+#             OR = {
+#                 NOT = { owned_by = THIS }
+#                 average_militancy = 4
+#                 AND = {
+#                     controlled_by = REB
+#                     province_control_days = 60
+#                 }
+#             }
+#         }
+#     }
 
-    mean_time_to_happen = {
-        months = 1
-    }
+#     mean_time_to_happen = {
+#         months = 1
+#     }
 
 
-    option = {
-        prestige = 3
-        name = "EVT95510OPTA"
-        any_owned = {
-            limit = { region = ENG_1848 }
-            secede_province = ETH
-        }
-        relation = { who = ETH value = -100 }
-        leave_alliance = ETH
-        casus_belli = {
-            target = ETH
-            type = acquire_state
-            months = 24
-        }
-        ai_chance = { factor = 0 }
-    }
+#     option = {
+#         prestige = 3
+#         name = "EVT95510OPTA"
+#         any_owned = {
+#             limit = { region = ENG_1848 }
+#             secede_province = ETH
+#         }
+#         relation = { who = ETH value = -100 }
+#         leave_alliance = ETH
+#         casus_belli = {
+#             target = ETH
+#             type = acquire_state
+#             months = 24
+#         }
+#         ai_chance = { factor = 0 }
+#     }
 
-    option = {
-        name = "EVT95510OPTB"
-        prestige = -3
-        any_owned = {
-            limit = { region = ENG_1848 }
-            secede_province = ETH
-        }
-        relation = { who = ETH value = 100 }
-        ai_chance = { factor = 100 }
-    }
-}
+#     option = {
+#         name = "EVT95510OPTB"
+#         prestige = -3
+#         any_owned = {
+#             limit = { region = ENG_1848 }
+#             secede_province = ETH
+#         }
+#         relation = { who = ETH value = 100 }
+#         ai_chance = { factor = 100 }
+#     }
+# }
 
 country_event = {
     id = 95511
@@ -862,432 +862,432 @@ country_event = {
     }
 }
 
-#Annexation of Sudan - Hegemony over the Nile
-country_event = {
-    id = 955177
-    title = "EVTNAME955177"
-    desc = "EVTDESC955177"
-    picture = "sudan_question"
+# #Annexation of Sudan - Hegemony over the Nile
+# country_event = {
+#     id = 955177
+#     title = "EVTNAME955177"
+#     desc = "EVTDESC955177"
+#     picture = "sudan_question"
 
-    trigger = {
-        war = no
-        is_sphere_leader_of = EGY
-        capital_scope = { continent = europe }
-        NOT = {
-            tag = TUR
-            tag = RUS
-            exists = SUD
-        }
-        has_global_flag = berlin_conference
-        has_global_flag = mahdist_uprising
-        EGY = {
-            exists = yes
-            any_owned_province = {
-                is_core = SUD
-                has_province_modifier = fundamentalist_sympathies
-            }
-            any_owned_province = {
-                region = EGY_1834
-            }
-        }
-    }
+#     trigger = {
+#         war = no
+#         is_sphere_leader_of = EGY
+#         capital_scope = { continent = europe }
+#         NOT = {
+#             tag = TUR
+#             tag = RUS
+#             exists = SUD
+#         }
+#         has_global_flag = berlin_conference
+#         has_global_flag = mahdist_uprising
+#         EGY = {
+#             exists = yes
+#             any_owned_province = {
+#                 is_core = SUD
+#                 has_province_modifier = fundamentalist_sympathies
+#             }
+#             any_owned_province = {
+#                 region = EGY_1834
+#             }
+#         }
+#     }
 
-    fire_only_once = yes
+#     fire_only_once = yes
 
-    mean_time_to_happen = { months = 8 }
+#     mean_time_to_happen = { months = 8 }
 
-    option = {
-        name = "EVT955177OPTA"
-        EGY = { country_event = 955178 }
-        ai_chance = { factor = 100 }
-    }
+#     option = {
+#         name = "EVT955177OPTA"
+#         EGY = { country_event = 955178 }
+#         ai_chance = { factor = 100 }
+#     }
 
-    option = {
-        name = "EVT955177OPTB"
-        prestige = -5
-        ai_chance = { factor = 0 }
-    }
-}
-#Egypt Answer
-country_event = {
-    id = 955178
-    title = "EVTNAME955178"
-    desc = "EVTDESC955178"
-    picture = "sudan_question"
+#     option = {
+#         name = "EVT955177OPTB"
+#         prestige = -5
+#         ai_chance = { factor = 0 }
+#     }
+# }
+# #Egypt Answer
+# country_event = {
+#     id = 955178
+#     title = "EVTNAME955178"
+#     desc = "EVTDESC955178"
+#     picture = "sudan_question"
 
-    is_triggered_only = yes
+#     is_triggered_only = yes
 
-    option = {
-        name = "EVT955178OPTA"
-        prestige = -5
-        FROM = { country_event = 955179 }
-        ai_chance = { factor = 0.75 }
-    }
+#     option = {
+#         name = "EVT955178OPTA"
+#         prestige = -5
+#         FROM = { country_event = 955179 }
+#         ai_chance = { factor = 0.75 }
+#     }
 
-    option = {
-        name = "EVT955178OPTB"
-        prestige = 5
-        FROM = { country_event = 955180 }
-        set_country_flag = surrender_sudan_on_lose
-        ai_chance = {
-            factor = 0.25
-            modifier = {
-                factor = 0
-                is_vassal = yes
-            }
-        }
-    }
-}
-#Egypt Accepts
-country_event = {
-    id = 955179
-    title = "EVTNAME955179"
-    desc = "EVTDESC955179"
-    picture = "sudan_question"
+#     option = {
+#         name = "EVT955178OPTB"
+#         prestige = 5
+#         FROM = { country_event = 955180 }
+#         set_country_flag = surrender_sudan_on_lose
+#         ai_chance = {
+#             factor = 0.25
+#             modifier = {
+#                 factor = 0
+#                 is_vassal = yes
+#             }
+#         }
+#     }
+# }
+# #Egypt Accepts
+# country_event = {
+#     id = 955179
+#     title = "EVTNAME955179"
+#     desc = "EVTDESC955179"
+#     picture = "sudan_question"
 
-    is_triggered_only = yes
+#     is_triggered_only = yes
 
-    option = {
-        name = "EVT955179OPTA"
-        prestige = 5
-        SUD = {
-            all_core = {
-                remove_core = DAR
-                remove_core = SHK
-                any_pop = {
-                    militancy = 7
-                    consciousness = 4
-                }
-            }
-        }
+#     option = {
+#         name = "EVT955179OPTA"
+#         prestige = 5
+#         SUD = {
+#             all_core = {
+#                 remove_core = DAR
+#                 remove_core = SHK
+#                 any_pop = {
+#                     militancy = 7
+#                     consciousness = 4
+#                 }
+#             }
+#         }
 
-        1834 = { add_core = EGY }
+#         1834 = { add_core = EGY }
 
-        random_owned = {
-            limit = {
-                owner = {
-                    NOT = { money = 50000 }
-                    check_variable = { which = owed_cash_money value = 9 }
-                }
-            }
-            owner = { change_variable = { which = owed_cash_money value = 50 } }
-        }
-        random_owned = {
-            limit = {
-                owner = {
-                    NOT = { money = 50000 }
-                    NOT = { check_variable = { which = owed_cash_money value = 1 } }
-                }
-            }
-            owner = { set_variable = { which = owed_cash_money value = 50 } }
-        }
-        random_owned = {
-            limit = { owner = { money = 50000 } }
-            owner = { treasury = -50000 }
-        }
+#         random_owned = {
+#             limit = {
+#                 owner = {
+#                     NOT = { money = 50000 }
+#                     check_variable = { which = owed_cash_money value = 9 }
+#                 }
+#             }
+#             owner = { change_variable = { which = owed_cash_money value = 50 } }
+#         }
+#         random_owned = {
+#             limit = {
+#                 owner = {
+#                     NOT = { money = 50000 }
+#                     NOT = { check_variable = { which = owed_cash_money value = 1 } }
+#                 }
+#             }
+#             owner = { set_variable = { which = owed_cash_money value = 50 } }
+#         }
+#         random_owned = {
+#             limit = { owner = { money = 50000 } }
+#             owner = { treasury = -50000 }
+#         }
 
-        FROM = {
-            money = 50000
-            any_owned = {
-                limit = {
-                    OR = {
-                        is_core = SUD
-                        is_core = ETH
-                    }
-                }
-                secede_province = THIS
-            }
-        }
-        relation = { who = EGY value = 100 }
-    }
-}
+#         FROM = {
+#             money = 50000
+#             any_owned = {
+#                 limit = {
+#                     OR = {
+#                         is_core = SUD
+#                         is_core = ETH
+#                     }
+#                 }
+#                 secede_province = THIS
+#             }
+#         }
+#         relation = { who = EGY value = 100 }
+#     }
+# }
 
-#Egypt Refuses
-country_event = {
-    id = 955180
-    title = "EVTNAME955180"
-    desc = "EVTDESC955180"
-    picture = "sudan_question"
+# #Egypt Refuses
+# country_event = {
+#     id = 955180
+#     title = "EVTNAME955180"
+#     desc = "EVTDESC955180"
+#     picture = "sudan_question"
 
-    is_triggered_only = yes
+#     is_triggered_only = yes
 
-    option = {
-        name = "EVT955180OPTA"
-        relation = { who = FROM value = -400 }
-        diplomatic_influence = { who = FROM value = -400 }
-        SUD = {
-            civilized = no
-            government = theocracy
-            set_country_flag = theocratic_government
-            ruling_party_ideology = reactionary
-            political_reform = none_voting
-            political_reform = party_appointed
-            political_reform = no_meeting
-            political_reform = state_press
-            political_reform = state_controlled
-            political_reform = underground_parties
-            social_reform = primary_culture_only
-            political_reform = mandatory_service
+#     option = {
+#         name = "EVT955180OPTA"
+#         relation = { who = FROM value = -400 }
+#         diplomatic_influence = { who = FROM value = -400 }
+#         SUD = {
+#             civilized = no
+#             government = theocracy
+#             set_country_flag = theocratic_government
+#             ruling_party_ideology = reactionary
+#             political_reform = none_voting
+#             political_reform = party_appointed
+#             political_reform = no_meeting
+#             political_reform = state_press
+#             political_reform = state_controlled
+#             political_reform = underground_parties
+#             social_reform = primary_culture_only
+#             political_reform = mandatory_service
 
-            clr_country_flag = election_started
-            clr_country_flag = conservative_party_in_power
-            clr_country_flag = liberal_party_in_power
-            clr_country_flag = reactionary_party_in_power
-            clr_country_flag = socialist_party_in_power
-            clr_country_flag = communist_party_in_power
-            clr_country_flag = fascist_party_in_power
-            clr_country_flag = anarcho_liberal_party_in_power
+#             clr_country_flag = election_started
+#             clr_country_flag = conservative_party_in_power
+#             clr_country_flag = liberal_party_in_power
+#             clr_country_flag = reactionary_party_in_power
+#             clr_country_flag = socialist_party_in_power
+#             clr_country_flag = communist_party_in_power
+#             clr_country_flag = fascist_party_in_power
+#             clr_country_flag = anarcho_liberal_party_in_power
 
-            all_core = {
-                remove_core = DAR
-                remove_core = SHK
-            }
-        }
-        casus_belli = {
-            target = FROM
-            type = add_to_sphere
-            months = 30
-        }
-        war = {
-            target = FROM
-            attacker_goal = {
-                casus_belli = add_to_sphere
-            }
-        }
-    }
-}
+#             all_core = {
+#                 remove_core = DAR
+#                 remove_core = SHK
+#             }
+#         }
+#         casus_belli = {
+#             target = FROM
+#             type = add_to_sphere
+#             months = 30
+#         }
+#         war = {
+#             target = FROM
+#             attacker_goal = {
+#                 casus_belli = add_to_sphere
+#             }
+#         }
+#     }
+# }
 
-#The Gabu Exchange
-country_event = {
-    id = 955181
-    title = "EVTNAME955181"
-    desc = "EVTDESC955181"
-    picture = "scramble_for_africa"
+# #The Gabu Exchange
+# country_event = {
+#     id = 955181
+#     title = "EVTNAME955181"
+#     desc = "EVTDESC955181"
+#     picture = "scramble_for_africa"
 
-    is_triggered_only = yes
+#     is_triggered_only = yes
 
-    option = {
-        name = "EVT955181OPTA"
-        relation = { who = FROM value = 50 }
-        random_owned = {
-            limit = { province_id = 1792 }
-            secede_province = FROM
-        }
-        random_country = {
-            limit = {
-                tag = FROM
-                owns = 1878
-            }
-            random_owned = {
-                limit = { province_id = 1878 }
-                secede_province = THIS
-            }
-        }
-        ai_chance = {
-            factor = 95
-            modifier = {
-                factor = 0.5
-                is_greater_power = yes
-            }
-        }
-    }
+#     option = {
+#         name = "EVT955181OPTA"
+#         relation = { who = FROM value = 50 }
+#         random_owned = {
+#             limit = { province_id = 1792 }
+#             secede_province = FROM
+#         }
+#         random_country = {
+#             limit = {
+#                 tag = FROM
+#                 owns = 1878
+#             }
+#             random_owned = {
+#                 limit = { province_id = 1878 }
+#                 secede_province = THIS
+#             }
+#         }
+#         ai_chance = {
+#             factor = 95
+#             modifier = {
+#                 factor = 0.5
+#                 is_greater_power = yes
+#             }
+#         }
+#     }
 
-    option = {
-        name = "EVT955181OPTB"
-        relation = { who = FROM value = -150 }
-        casus_belli = {
-            target = FROM
-            type = place_in_the_sun
-            months = 30
-        }
-        add_casus_belli = {
-            target = THIS
-            type = place_in_the_sun
-            months = 30
-        }
-        ai_chance = {
-            factor = 5
-            modifier = {
-                factor = 4
-                NOT = { relation = { who = FROM value = 0 } }
-            }
-        }
-    }
-}
+#     option = {
+#         name = "EVT955181OPTB"
+#         relation = { who = FROM value = -150 }
+#         casus_belli = {
+#             target = FROM
+#             type = place_in_the_sun
+#             months = 30
+#         }
+#         add_casus_belli = {
+#             target = THIS
+#             type = place_in_the_sun
+#             months = 30
+#         }
+#         ai_chance = {
+#             factor = 5
+#             modifier = {
+#                 factor = 4
+#                 NOT = { relation = { who = FROM value = 0 } }
+#             }
+#         }
+#     }
+# }
 
-#The Conquest of Luhonono
-country_event = {
-    id = 955200
-    title = "EVTNAME955200"
-    desc = "EVTDESC955200"
-    picture = "mfecane"
+# #The Conquest of Luhonono
+# country_event = {
+#     id = 955200
+#     title = "EVTNAME955200"
+#     desc = "EVTDESC955200"
+#     picture = "mfecane"
 
-    trigger = {
-        tag = ENG
-        owns = 2076
-        2082 = { empty = no }
-        2081 = { empty = yes }
-        invention = the_dark_continent
-    }
+#     trigger = {
+#         tag = ENG
+#         owns = 2076
+#         2082 = { empty = no }
+#         2081 = { empty = yes }
+#         invention = the_dark_continent
+#     }
 
-    fire_only_once = yes
+#     fire_only_once = yes
 
-    mean_time_to_happen = { months = 2 }
+#     mean_time_to_happen = { months = 2 }
 
-    option = {
-        name = "EVT955200OPTA"
-        2081 = { secede_province = THIS any_pop = { literacy = -0.99 } }
-    }
-}
+#     option = {
+#         name = "EVT955200OPTA"
+#         2081 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+#     }
+# }
 
-#Caprivi strip purchase
-country_event = {
-    id = 955201
-    title = "EVTNAME955201"
-    desc = "EVTDESC955201"
-    picture = "scramble_for_africa"
+# #Caprivi strip purchase
+# country_event = {
+#     id = 955201
+#     title = "EVTNAME955201"
+#     desc = "EVTDESC955201"
+#     picture = "scramble_for_africa"
 
-    is_triggered_only = yes
+#     is_triggered_only = yes
 
-    option = {
-        name = "EVT955201OPTA"
-        treasury = 100000
-        random_country = {
-            limit = { tag = FROM }
+#     option = {
+#         name = "EVT955201OPTA"
+#         treasury = 100000
+#         random_country = {
+#             limit = { tag = FROM }
 
-            random_owned = {
-                limit = {
-                    owner = {
-                        NOT = { money = 100000 }
-                        check_variable = { which = owed_cash_money value = 9 }
-                    }
-                }
-                owner = { change_variable = { which = owed_cash_money value = 100 } }
-            }
+#             random_owned = {
+#                 limit = {
+#                     owner = {
+#                         NOT = { money = 100000 }
+#                         check_variable = { which = owed_cash_money value = 9 }
+#                     }
+#                 }
+#                 owner = { change_variable = { which = owed_cash_money value = 100 } }
+#             }
 
-            random_owned = {
-                limit = {
-                    owner = {
-                        NOT = { money = 100000 }
-                        NOT = { check_variable = { which = owed_cash_money value = 1 } }
-                    }
-                }
-                owner = { set_variable = { which = owed_cash_money value = 100 } }
-            }
+#             random_owned = {
+#                 limit = {
+#                     owner = {
+#                         NOT = { money = 100000 }
+#                         NOT = { check_variable = { which = owed_cash_money value = 1 } }
+#                     }
+#                 }
+#                 owner = { set_variable = { which = owed_cash_money value = 100 } }
+#             }
 
-            random_owned = {
-                limit = { owner = { money = 100000 } }
-                owner = { treasury = -100000 }
-            }
-        }
-        relation = { who = FROM value = 25 }
-        2081 = { secede_province = FROM add_core = NMB }
-        ai_chance = {
-            factor = 0.5
-            modifier = { factor = 1.1 relation = { who = FROM value = 50 } }
-            modifier = { factor = 1.1 relation = { who = FROM value = 100 } }
-            modifier = { factor = 1.1 relation = { who = FROM value = 150 } }
-            modifier = { factor = 1.2 relation = { who = FROM value = 199 } }
-            modifier = { factor = 10 in_sphere = THIS }
-        }
-    }
+#             random_owned = {
+#                 limit = { owner = { money = 100000 } }
+#                 owner = { treasury = -100000 }
+#             }
+#         }
+#         relation = { who = FROM value = 25 }
+#         2081 = { secede_province = FROM add_core = NMB }
+#         ai_chance = {
+#             factor = 0.5
+#             modifier = { factor = 1.1 relation = { who = FROM value = 50 } }
+#             modifier = { factor = 1.1 relation = { who = FROM value = 100 } }
+#             modifier = { factor = 1.1 relation = { who = FROM value = 150 } }
+#             modifier = { factor = 1.2 relation = { who = FROM value = 199 } }
+#             modifier = { factor = 10 in_sphere = THIS }
+#         }
+#     }
 
-    option = {
-        name = "EVT955201OPTB"
-        relation = { who = FROM value = -50 }
-        ai_chance = {
-            factor = 0.5
-            modifier = { factor = 1.1 NOT = { relation = { who = FROM value = 0 } } }
-            modifier = { factor = 1.2 NOT = { relation = { who = FROM value = -50 } } }
-            modifier = { factor = 1.2 NOT = { relation = { who = FROM value = -100 } } }
-            modifier = { factor = 1.2 NOT = { relation = { who = FROM value = -199 } } }
-        }
-    }
-}
+#     option = {
+#         name = "EVT955201OPTB"
+#         relation = { who = FROM value = -50 }
+#         ai_chance = {
+#             factor = 0.5
+#             modifier = { factor = 1.1 NOT = { relation = { who = FROM value = 0 } } }
+#             modifier = { factor = 1.2 NOT = { relation = { who = FROM value = -50 } } }
+#             modifier = { factor = 1.2 NOT = { relation = { who = FROM value = -100 } } }
+#             modifier = { factor = 1.2 NOT = { relation = { who = FROM value = -199 } } }
+#         }
+#     }
+# }
 
-#The Ziguinchor Purchase
-country_event = {
-    id = 955202
-    title = "EVTNAME955181"
-    desc = "EVTDESC955202"
-    picture = "scramble_for_africa"
+# #The Ziguinchor Purchase
+# country_event = {
+#     id = 955202
+#     title = "EVTNAME955181"
+#     desc = "EVTDESC955202"
+#     picture = "scramble_for_africa"
 
-    is_triggered_only = yes
+#     is_triggered_only = yes
 
-    option = {
-        name = "EVT955181OPTA"
-        relation = { who = FROM value = 50 }
-        treasury = 200000
-        random_owned = {
-            limit = { province_id = 1792 }
-            secede_province = FROM
-        }
+#     option = {
+#         name = "EVT955181OPTA"
+#         relation = { who = FROM value = 50 }
+#         treasury = 200000
+#         random_owned = {
+#             limit = { province_id = 1792 }
+#             secede_province = FROM
+#         }
 
-        random_country = {
-            limit = {
-                tag = FROM
-                has_country_flag = paying_for_senegal
-            }
+#         random_country = {
+#             limit = {
+#                 tag = FROM
+#                 has_country_flag = paying_for_senegal
+#             }
 
-            random_owned = {
-                limit = {
-                    owner = {
-                        NOT = { money = 200000 }
-                        check_variable = { which = owed_cash_money value = 9 }
-                    }
-                }
-                owner = { change_variable = { which = owed_cash_money value = 200 } }
-            }
+#             random_owned = {
+#                 limit = {
+#                     owner = {
+#                         NOT = { money = 200000 }
+#                         check_variable = { which = owed_cash_money value = 9 }
+#                     }
+#                 }
+#                 owner = { change_variable = { which = owed_cash_money value = 200 } }
+#             }
 
-            random_owned = {
-                limit = {
-                    owner = {
-                        NOT = { money = 200000 }
-                        NOT = { check_variable = { which = owed_cash_money value = 1 } }
-                    }
-                }
-                owner = { set_variable = { which = owed_cash_money value = 200 } }
-            }
+#             random_owned = {
+#                 limit = {
+#                     owner = {
+#                         NOT = { money = 200000 }
+#                         NOT = { check_variable = { which = owed_cash_money value = 1 } }
+#                     }
+#                 }
+#                 owner = { set_variable = { which = owed_cash_money value = 200 } }
+#             }
 
-            random_owned = {
-                limit = { owner = { money = 200000 } }
-                owner = { treasury = -200000 }
-            }
-            clr_country_flag = paying_for_senegal
-        }
+#             random_owned = {
+#                 limit = { owner = { money = 200000 } }
+#                 owner = { treasury = -200000 }
+#             }
+#             clr_country_flag = paying_for_senegal
+#         }
 
-        ai_chance = {
-            factor = 95
-            modifier = {
-                factor = 0.5
-                is_greater_power = yes
-            }
-        }
-    }
+#         ai_chance = {
+#             factor = 95
+#             modifier = {
+#                 factor = 0.5
+#                 is_greater_power = yes
+#             }
+#         }
+#     }
 
-    option = {
-        name = "EVT955181OPTB"
-        relation = { who = FROM value = -150 }
-        badboy = 1
-        casus_belli = {
-            target = FROM
-            type = place_in_the_sun
-            months = 30
-        }
-        add_casus_belli = {
-            target = FROM
-            type = place_in_the_sun
-            months = 30
-        }
-        ai_chance = {
-            factor = 5
-            modifier = {
-                factor = 4
-                NOT = { relation = { who = FROM value = 0 } }
-            }
-        }
-    }
-}
+#     option = {
+#         name = "EVT955181OPTB"
+#         relation = { who = FROM value = -150 }
+#         badboy = 1
+#         casus_belli = {
+#             target = FROM
+#             type = place_in_the_sun
+#             months = 30
+#         }
+#         add_casus_belli = {
+#             target = FROM
+#             type = place_in_the_sun
+#             months = 30
+#         }
+#         ai_chance = {
+#             factor = 5
+#             modifier = {
+#                 factor = 4
+#                 NOT = { relation = { who = FROM value = 0 } }
+#             }
+#         }
+#     }
+# }
 
 #The Scramble Awards
 country_event = {
@@ -1624,3 +1624,42 @@ country_event = {
 #         }
 #     }
 # }
+
+# Delta War
+country_event = {
+	id = 59000
+	title = "EVTNAME59000" #The Delta War
+	desc = "EVTDESC59000"
+	news = yes
+	picture = "blood_river"
+	mean_time_to_happen = { months = 60 }
+	trigger = {
+		PTO = { exists = yes }
+		controls = 1746
+		NOT = { has_global_flag = delta_war }
+		OR = {
+			AND = {
+				OR = {
+					is_greater_power = yes
+					is_secondary_power = yes
+				}	
+				has_global_flag = berlin_conference
+			}
+			AND = { 
+				year = 2890
+				NOT = { year = 2902 }
+			}
+		}
+	}
+	option = {
+		name = "EVT59000OPTA"
+		set_global_flag = delta_war
+		war = {
+			target = PTO
+			attacker_goal = { casus_belli = conquest }
+			defender_goal = { casus_belli = status_quo }
+			call_ally = no
+
+		}
+	}
+}
